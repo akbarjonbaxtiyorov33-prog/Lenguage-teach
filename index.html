@@ -504,6 +504,17 @@ U?home():ob(0);
       deferredPrompt = null;
     }
   });
+  <!-- 2. OVOZLI TALAFFUZ FUNKSIYASI -->
+<script>
+  document.addEventListener('dblclick', function() {
+    const selectedText = window.getSelection().toString().trim();
+    if (selectedText.length > 0 && selectedText.length < 100) {
+      const speech = new SpeechSynthesisUtterance(selectedText);
+      speech.lang = 'en-US'; // Inglizcha talaffuz
+      speech.rate = 0.9;     // Biroz sekin va tushunarli o'qiydi
+      window.speechSynthesis.speak(speech);
+    }
+  });
 </script>
 </body>
 </html>
