@@ -474,5 +474,10 @@ $.innerHTML='<div class="end"><div class="big">'+ic(fn?"star":"trophy",56)+'</di
 applyTheme();
 U?home():ob(0);
 </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
 </body>
 </html>
