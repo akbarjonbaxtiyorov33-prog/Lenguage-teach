@@ -1,5 +1,5 @@
 {
-  "name": "Tilchi — Dunyo tillarini o'rgan",
+  "name": "Tilchi",
   "short_name": "Tilchi",
   "start_url": "/",
   "display": "standalone",
@@ -7,9 +7,10 @@
   "theme_color": "#4f7cff",
   "icons": [
     {
-      "src": "https://flaticon.com",
+      "src": "https://githubusercontent.com",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
