@@ -1,3 +1,4 @@
+
 {
   "name": "Tilchi",
   "short_name": "Tilchi",
@@ -12,5 +13,8 @@
       "type": "image/png",
       "purpose": "any"
     }
+  ],
+  "categories": [
+    "education"
   ]
 }
