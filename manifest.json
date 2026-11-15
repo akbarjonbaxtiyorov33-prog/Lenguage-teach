@@ -1,9 +1,8 @@
-
 {
   "name": "Tilchi",
   "short_name": "Tilchi",
-  "start_url": "/",
-  "display": "standalone",
+  "start_url": "/Tilcha.org",
+  "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#4f7cff",
   "icons": [
@@ -16,5 +15,13 @@
   ],
   "categories": [
     "education"
+  ],
+  "dir": "ltr",
+  "scope": "/",
+  "lang": "uz",
+  "orientation": "any",
+  "display_override": [
+    "window-controls-overlay"
   ]
 }
+
