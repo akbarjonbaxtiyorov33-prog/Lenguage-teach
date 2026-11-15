@@ -90,7 +90,7 @@ h1,h2,h3{margin:0 0 8px;font-weight:700;letter-spacing:-.2px}p{margin:6px 0}
 .aeb{padding:16px}.aeb h3{margin:0 0 12px;font-size:16px}
 .swg{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}.swg.g3{grid-template-columns:repeat(3,1fr)}
 .sw{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:7px;cursor:pointer}.sw.on{border-color:var(--acc);background:var(--soft)}.sw i{display:block;width:100%;aspect-ratio:1;border-radius:7px}.sw svg{width:100%;display:block;background:var(--soft);border-radius:7px}
-.dim{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top,0px) + 55px);background:rgba(0,0,0,.55);z-index:6}
+.ddim{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top,0px) + 55px);background:rgba(0,0,0,.55);z-index:6}
 .dd{position:fixed;left:0;right:0;max-width:520px;margin:0 auto;top:calc(env(safe-area-inset-top,0px) + 55px);background:var(--card);z-index:7;padding:14px 16px;display:flex;flex-wrap:wrap;gap:16px;border-bottom:1px solid var(--line)}
 .dd button{background:none;border:0;color:var(--fg);font:inherit;text-align:center;cursor:pointer}
 .dd .fl{width:64px;height:54px;border-radius:12px;border:2px solid transparent;display:flex;align-items:center;justify-content:center;font-size:32px;background:var(--bg);margin-bottom:4px}.dd .on .fl{border-color:var(--acc)}.dd .pl{border:1.5px dashed var(--mut);color:var(--mut);font-size:26px}
@@ -922,7 +922,7 @@ hair:'<h3>Soch uslubi</h3>'+pvs("hair",5)+'<h3>Soch rangi</h3>'+sws("hc",HAIRC),
 $.innerHTML='<div class="aeh"><button class="x" onclick="home()">✕</button><b>Avatarni o‘zgartirish</b><button class="lk" style="background:none;border:0;font:inherit" onclick="avDone()">Tayyor</button></div><div class="aep">'+avSVG(AE)+'</div><div class="aet">'+T.map(function(t){return '<button class="'+(AT===t[0]?'on':'')+'" onclick="avTab(\''+t[0]+'\')">'+t[1]+'</button>'}).join("")+'</div><div class="aeb">'+P[AT]+'</div>'}
 var DX=null,LPT=null,LPF=0;
 var TRASH='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/></svg>';
-function ddHTML(){return '<div class="dim" onclick="DD=0;DX=null;home(1)"></div><div class="dd">'+U.crs.map(function(c){var f=lg(c);return '<button class="'+(c===U.lang?'on':'')+(DX===c?' dx':'')+'" onpointerdown="lpS(\''+c+'\')" onpointerup="lpE()" onpointerleave="lpE()" onpointercancel="lpE()" oncontextmenu="return false" onclick="lpC(\''+c+'\')"><div class="fl">'+f[2]+(DX===c?'<span class="del" onclick="event.stopPropagation();delLang(\''+c+'\')" aria-label="O‘chirish">'+TRASH+'</span>':'')+'</div><b>'+f[1]+'</b></button>'}).join("")+'<button onclick="DD=0;DX=null;TAB=\'lang\';home()"><div class="fl pl">+</div><b style="color:var(--mut)">Kurs</b></button>'+(U.crs.length>1?'<div class="hint">Kursni o‘chirish uchun bayroqni bosib turing</div>':'')+'</div>'}
+function ddHTML(){return '<div class="ddim" onclick="DD=0;DX=null;home(1)"></div><div class="dd">'+U.crs.map(function(c){var f=lg(c);return '<button class="'+(c===U.lang?'on':'')+(DX===c?' dx':'')+'" onpointerdown="lpS(\''+c+'\')" onpointerup="lpE()" onpointerleave="lpE()" onpointercancel="lpE()" oncontextmenu="return false" onclick="lpC(\''+c+'\')"><div class="fl">'+f[2]+(DX===c?'<span class="del" onclick="event.stopPropagation();delLang(\''+c+'\')" aria-label="O‘chirish">'+TRASH+'</span>':'')+'</div><b>'+f[1]+'</b></button>'}).join("")+'<button onclick="DD=0;DX=null;TAB=\'lang\';home()"><div class="fl pl">+</div><b style="color:var(--mut)">Kurs</b></button>'+(U.crs.length>1?'<div class="hint">Kursni o‘chirish uchun bayroqni bosib turing</div>':'')+'</div>'}
 function lpS(c){clearTimeout(LPT);if(U.crs.length<2){return}LPT=setTimeout(function(){LPT=null;DX=c;LPF=Date.now();try{navigator.vibrate&&navigator.vibrate(30)}catch(x){}home(1)},550)}
 function lpE(){clearTimeout(LPT);LPT=null}
 function lpC(c){if(Date.now()-LPF<600)return;if(DX){DX=null;home(1);return}swc(c)}
@@ -990,19 +990,19 @@ function hTr(){trI();var H=U.trh||[];return '<div class="ob"><h2>Tarjimon</h2><p
 function trSwap(){trI();if(TR.from==="auto")return toast("Avval manba tilini tanlang");var t=TR.from;TR.from=TR.to;TR.to=t;if(TR.out){TR.text=TR.out;TR.out=""}trR()}
 function trSay(){var t=TR.out;if(!t)return;var f=U.tts;U.tts=true;say(t,tl(TR.to)[3]);U.tts=f}
 var TRM=null,TRSEQ=0;
-function trFB(){trI();if(TRM){try{TRM.stop()}catch(x){}return}
+function trFb(m){var ta=document.querySelector(".tra");if(ta)ta.focus();toast(m+". Klaviaturadagi 🎤 tugmasi bilan gapiring")}
 function trMic(){trI();if(TRM){try{TRM.stop()}catch(x){}return}
 var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-if(!SR)return toast("Bu brauzer ovoz tanishni qo‘llamaydi. Chrome da oching");
+if(!SR)return trFb("Bu brauzer ovoz tanishni qo‘llamaydi");
 var r=new SR(),got="",lc=TR.from==="auto"?lg(U.lang)[3]:tl(TR.from)[3];
 r.lang=lc;r.interimResults=true;r.continuous=false;TRM=r;
 var bt=document.getElementById("mic");if(bt)bt.classList.add("rec");
 r.onresult=function(ev){var t="";for(var i=0;i<ev.results.length;i++)t+=ev.results[i][0].transcript;got=t;TR.text=t;var ta=document.querySelector(".tra");if(ta)ta.value=t};
-r.onerror=function(ev){var m={"not-allowed":"Mikrofonga ruxsat bering (brauzer sozlamalari)","service-not-allowed":"Mikrofonga ruxsat berilmagan","no-speech":"Ovoz eshitilmadi, qayta urinib ko‘ring","audio-capture":"Mikrofon topilmadi","network":"Ovoz xizmatiga ulanib bo‘lmadi. Chrome brauzerida oching","language-not-supported":"Bu til uchun ovoz tanish yo‘q"}[ev.error];toast(m||"Ovoz xatosi: "+ev.error)};
+r.onerror=function(ev){var m={"not-allowed":"Mikrofonga ruxsat bering (brauzer sozlamalari)","service-not-allowed":"Mikrofonga ruxsat berilmagan","no-speech":"Ovoz eshitilmadi, qayta urinib ko‘ring","audio-capture":"Mikrofon topilmadi","network":"Ovoz xizmatiga ulanib bo‘lmadi. Chrome brauzerida oching","language-not-supported":"Bu til uchun ovoz tanish yo‘q"}[ev.error];trFb(m||"Ovoz xatosi: "+ev.error)};
 r.onend=function(){TRM=null;var b=document.getElementById("mic");if(b)b.classList.remove("rec");if(got.trim())trGo()};
-toast("Gapiring… ("+lc+")");try{r.start()}catch(x){TRM=null;toast("Mikrofonni yoqib bo‘lmadi")}}
+toast("Gapiring… ("+lc+")");try{r.start()}catch(x){TRM=null;trFb("Mikrofonni yoqib bo‘lmadi")}}
 var TGC={zh:"zh-CN"};
-function gcode(c){return c==="auto"?"auto":(GC[c]||c)}
+function gcode(c){return c==="auto"?"auto":(TGC[c]||c)}
 function trG(q){var u="sl="+gcode(TR.from)+"&tl="+gcode(TR.to)+"&q="+encodeURIComponent(q);
 return fj("https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&"+u).then(function(r){return r.json()}).then(function(j){var t=j[0].map(function(x){return x[0]||""}).join("");if(!t)throw 0;return t})}
 function trG2(q){var u="sl="+gcode(TR.from)+"&tl="+gcode(TR.to)+"&q="+encodeURIComponent(q);
@@ -1169,7 +1169,7 @@ U?home():ob(0);
 </script>
 </body>
 </html>
-<link rel="manifest" href="/manifest.json">
+><link rel="manifest" href="/manifest.json">
 
 </script>
   <script>
