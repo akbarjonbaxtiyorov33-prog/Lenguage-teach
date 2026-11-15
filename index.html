@@ -990,6 +990,7 @@ function hTr(){trI();var H=U.trh||[];return '<div class="ob"><h2>Tarjimon</h2><p
 function trSwap(){trI();if(TR.from==="auto")return toast("Avval manba tilini tanlang");var t=TR.from;TR.from=TR.to;TR.to=t;if(TR.out){TR.text=TR.out;TR.out=""}trR()}
 function trSay(){var t=TR.out;if(!t)return;var f=U.tts;U.tts=true;say(t,tl(TR.to)[3]);U.tts=f}
 var TRM=null,TRSEQ=0;
+function trFB(){trI();if(TRM){try{TRM.stop()}catch(x){}return}
 function trMic(){trI();if(TRM){try{TRM.stop()}catch(x){}return}
 var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 if(!SR)return toast("Bu brauzer ovoz tanishni qo‘llamaydi. Chrome da oching");
@@ -1000,7 +1001,7 @@ r.onresult=function(ev){var t="";for(var i=0;i<ev.results.length;i++)t+=ev.resul
 r.onerror=function(ev){var m={"not-allowed":"Mikrofonga ruxsat bering (brauzer sozlamalari)","service-not-allowed":"Mikrofonga ruxsat berilmagan","no-speech":"Ovoz eshitilmadi, qayta urinib ko‘ring","audio-capture":"Mikrofon topilmadi","network":"Ovoz xizmatiga ulanib bo‘lmadi. Chrome brauzerida oching","language-not-supported":"Bu til uchun ovoz tanish yo‘q"}[ev.error];toast(m||"Ovoz xatosi: "+ev.error)};
 r.onend=function(){TRM=null;var b=document.getElementById("mic");if(b)b.classList.remove("rec");if(got.trim())trGo()};
 toast("Gapiring… ("+lc+")");try{r.start()}catch(x){TRM=null;toast("Mikrofonni yoqib bo‘lmadi")}}
-var GC={zh:"zh-CN"};
+var TGC={zh:"zh-CN"};
 function gcode(c){return c==="auto"?"auto":(GC[c]||c)}
 function trG(q){var u="sl="+gcode(TR.from)+"&tl="+gcode(TR.to)+"&q="+encodeURIComponent(q);
 return fj("https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&"+u).then(function(r){return r.json()}).then(function(j){var t=j[0].map(function(x){return x[0]||""}).join("");if(!t)throw 0;return t})}
