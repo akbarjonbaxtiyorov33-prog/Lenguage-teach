@@ -1216,5 +1216,254 @@ U?home():ob(0);
   });
 })();
 </script>
+<script>
+/* Tilchi yangilanishi: logo, dizayn, ovoz, Google Pay, Premium, daraja tizimi. */
+(function(){
+/* ================= CSS ================= */
+var CSS=`
+.ohero h1.wm{font-size:clamp(76px,23vw,108px)!important;line-height:.95;letter-spacing:-.055em;margin:14px 0 6px;text-transform:none;filter:drop-shadow(0 6px 18px rgba(15,143,134,.35))}
+.wmk{width:170px;height:12px;background-size:28px 12px;margin-bottom:14px}
+.gl{transform:scale(.86);margin:-18px auto -10px}
+.opt{border-radius:16px;padding:16px 18px;font-size:17px;font-weight:600;transition:transform .12s,border-color .15s,background .15s;box-shadow:0 2px 0 var(--line)}
+.opt:active{transform:translateY(2px);box-shadow:none}
+.opt.sel{box-shadow:0 2px 0 var(--acc)}
+.lesson .prompt{box-shadow:0 8px 20px -12px rgba(0,0,0,.4)}
+.foot{border-radius:22px 22px 0 0}
+.dw,.gh{box-shadow:0 8px 22px -14px rgba(10,60,70,.45)}
+.card{box-shadow:0 18px 34px -16px color-mix(in srgb,var(--tc) 85%,#000)}
+.nav button{padding:10px 0 8px}
+.pfe{display:flex;align-items:center;gap:12px;padding:14px;border-radius:18px;background:var(--card);border:1px solid var(--line);margin:8px 0;box-shadow:0 1px 0 var(--gold)}
+.pfe>span{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#f3d27a,#c8962e);color:#fff;flex:none}
+.pfe>div{flex:1;min-width:0}.pfe b{display:block;font-family:var(--fd)}
+.pfe .fb{width:auto;margin:0;padding:9px 14px;font-size:13px}
+.gpb{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:8px 0;padding:14px;border-radius:12px;border:0;background:#000;color:#fff;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+.gpb .gg{font-weight:800;font-size:19px;background:linear-gradient(90deg,#4285f4,#ea4335,#fbbc05,#34a853);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hdc{display:flex;flex-direction:column;gap:10px;margin:0 16px 6px}
+.hrd{display:flex;align-items:center;gap:12px;width:100%;padding:14px 14px 14px 18px;border-radius:18px;border:1px solid var(--line);background:var(--card);color:var(--fg);font:inherit;text-align:left;cursor:pointer;box-shadow:0 1px 0 var(--tc);position:relative;overflow:hidden}
+.hrd:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tc)}
+.hrd .hn{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;color:#fff;background:var(--tc);flex:none}
+.hrd.lock{opacity:.5;cursor:not-allowed}.hrd.lock .hn{background:var(--line);color:var(--mut)}.hrd.done .hn{background:var(--ok)}
+.hrd .ht{flex:1}.hrd .ht b{display:block;font-family:var(--fd);font-size:16px}
+.hrd em{font-style:normal;font-weight:700;font-size:12.5px;color:var(--tc)}
+.lvb{display:inline-block;background:linear-gradient(145deg,#f3d27a,#c8962e);color:#fff;font-weight:800;font-size:11.5px;padding:3px 10px;border-radius:99px;margin:4px 0}
+.pbd{color:var(--gold);display:inline-flex;vertical-align:middle}
+.chl{display:flex;flex-direction:column;gap:10px;padding:8px 0 14px}
+.cb{max-width:86%;padding:10px 14px;border-radius:18px;line-height:1.4;font-size:15.5px;display:flex;flex-direction:column;gap:4px}
+.cb.a{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:6px}
+.cb.u{align-self:flex-end;background:var(--acc);color:#fff;border-bottom-right-radius:6px}
+.cb small{color:var(--mut)}.cb .fx{color:var(--gold);font-weight:600;font-size:13px}
+.cb .spk{align-self:flex-start;margin-top:2px}
+.chin{position:sticky;bottom:64px;display:flex;gap:8px;background:var(--bg);padding:8px 0;align-items:center}
+.chin .inp{margin:0;flex:1}
+.psc{height:12px;border-radius:7px;background:var(--soft);overflow:hidden;margin:10px 0}.psc i{display:block;height:100%;border-radius:7px;transition:width .4s}
+.prw{font-size:34px;font-weight:800;font-family:var(--fd);text-align:center}
+`;
+var st=document.createElement("style");st.textContent=CSS;document.head.appendChild(st);
+
+/* ================= OVOZ: eshitish ================= */
+var _AU=null,_UT=null;
+function ttsNet(t,lc){try{var b=lc.split("-")[0];if(b==="zh")b="zh-CN";if(_AU){_AU.pause();_AU=null}
+_AU=new Audio("https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl="+encodeURIComponent(b)+"&q="+encodeURIComponent(t));
+var p=_AU.play();if(p&&p.catch)p.catch(function(){})}catch(x){}}
+say=function(t,l){
+if(U&&U.tts===false)return;if(!t)return;
+var lc=l||lg(U.lang)[3],ss=window.speechSynthesis;
+if(!ss||!window.SpeechSynthesisUtterance){return ttsNet(t,lc)}
+var voices=[];try{voices=ss.getVoices()}catch(x){}
+var v=ttsVoice(lc);
+if(voices.length&&!v){return ttsNet(t,lc)}
+try{if(_AU){_AU.pause()}}catch(x){}
+try{ss.resume()}catch(x){}
+try{ss.cancel()}catch(x){}
+setTimeout(function(){try{
+var u=new SpeechSynthesisUtterance(t);u.lang=lc;if(v)u.voice=v;u.rate=(U&&U.rate)||1;u.volume=1;u.pitch=1;
+u.onerror=function(ev){if(ev&&ev.error!=="canceled"&&ev.error!=="interrupted")ttsNet(t,lc)};
+_UT=u;ss.speak(u)}catch(x){ttsNet(t,lc)}},60)};
+
+/* ================= OVOZ: gapirish ================= */
+function micErr(c){return({"not-allowed":"Mikrofonga ruxsat bering (brauzer sozlamalari)","service-not-allowed":"Mikrofonga ruxsat berilmagan","no-speech":"Ovoz eshitilmadi, qayta urinib ko‘ring","audio-capture":"Mikrofon topilmadi","network":"Ovoz xizmatiga ulanib bo‘lmadi. Internetni tekshiring","language-not-supported":"Bu til uchun ovoz tanish yo‘q","unsupported":"Bu brauzer ovoz tanishni qo‘llamaydi. Chrome ishlating"})[c]||"Ovoz xatosi: "+c}
+function micOK(){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return Promise.resolve();
+return navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){s.getTracks().forEach(function(t){t.stop()});return new Promise(function(r){setTimeout(r,150)})})}
+function listen(lc,cb){var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(!SR){cb.err&&cb.err("unsupported");return null}
+var r=new SR(),got="",alts=[],failed=false;r.lang=lc;r.interimResults=true;r.continuous=false;r.maxAlternatives=3;
+r.onresult=function(ev){var t="";for(var i=0;i<ev.results.length;i++)t+=ev.results[i][0].transcript;got=t;alts=[];var last=ev.results[ev.results.length-1];for(var j=0;j<last.length;j++)alts.push(last[j].transcript);cb.part&&cb.part(t)};
+r.onerror=function(ev){failed=true;cb.err&&cb.err(ev.error)};
+r.onend=function(){if(!failed)cb.end&&cb.end(got,alts)};
+try{r.start()}catch(x){cb.err&&cb.err("start");return null}
+return r}
+trMic=function(){trI();
+if(TRM){try{TRM.stop()}catch(x){}return}
+var lc=TR.from==="auto"?lg(U.lang)[3]:tl(TR.from)[3],bt=document.getElementById("mic");
+micOK().then(function(){
+if(bt)bt.classList.add("rec");toast("Gapiring… ("+lc+")");
+TRM=listen(lc,{part:function(t){TR.text=t;var ta=document.querySelector(".tra");if(ta)ta.value=t},
+err:function(c){TRM=null;var b=document.getElementById("mic");if(b)b.classList.remove("rec");toast(micErr(c))},
+end:function(got){TRM=null;var b=document.getElementById("mic");if(b)b.classList.remove("rec");if(got&&got.trim())trGo()}});
+if(!TRM&&bt)bt.classList.remove("rec")
+}).catch(function(){toast("Mikrofonga ruxsat bering (brauzer sozlamalari)")})};
+
+/* ================= GOOGLE PAY ================= */
+/* Haqiqiy to‘lov uchun: GPAY.env="PRODUCTION", Google Pay Business Console dagi merchantId va to‘lov provayderi (gateway) ma’lumotlarini kiriting.
+   Token serverda tekshirilib, yechib olinishi kerak. TEST rejimida pul yechilmaydi. */
+var GPAY={env:"TEST",merchantId:"",merchantName:"Tilchi",gateway:"example",gatewayMerchantId:"exampleGatewayMerchantId",currency:"UZS",country:"UZ"};
+window.GPAY=GPAY;
+function gpLoad(cb){if(window.google&&google.payments&&google.payments.api)return cb();
+var ex=document.getElementById("gpjs");if(ex){ex.addEventListener("load",cb);return}
+var s=document.createElement("script");s.id="gpjs";s.src="https://pay.google.com/gp/p/js/pay.js";s.onload=cb;s.onerror=function(){toast("Google Pay yuklanmadi. Internetni tekshiring")};document.head.appendChild(s)}
+function gpBase(){return{apiVersion:2,apiVersionMinor:0}}
+/* PRODUCTION rejimida to‘lov tokeni serverda tekshirilishi shart. GPAY.verifyUrl ga server manzilini yozing:
+   server {token, amount, item} oladi va {ok:true} qaytaradi. Server bo‘lmasa premium/olmos BERILMAYDI. */
+function gpVerify(tok,x,g){if(GPAY.env!=="PRODUCTION")return Promise.resolve(true);
+if(!GPAY.verifyUrl){toast("To‘lov serveri ulanmagan (GPAY.verifyUrl)");return Promise.resolve(false)}
+return fetch(GPAY.verifyUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token:tok,amount:x[2],item:(g?"gem":"prem")+PY.i,user:U.email})}).then(function(r){return r.json()}).then(function(j){return !!(j&&j.ok)}).catch(function(){return false})}
+function gpCard(){return{type:"CARD",parameters:{allowedAuthMethods:["PAN_ONLY","CRYPTOGRAM_3DS"],allowedCardNetworks:["VISA","MASTERCARD"]},tokenizationSpecification:{type:"PAYMENT_GATEWAY",parameters:{gateway:GPAY.gateway,gatewayMerchantId:GPAY.gatewayMerchantId}}}}
+function payGrant(x,g){if(g){U.gems+=x[0]+x[1];toast("+"+(x[0]+x[1])+" olmos hisobingizga qo‘shildi ✓")}
+else{U.prem=Math.max(Date.now(),U.prem||0)+x[0]*30*864e5;U.fz=(U.fz||0)+2*x[0];toast("Premium faollashtirildi ✓")}
+PY=null;sv();home(1)}
+function gpayStart(){var g=PY.t==="g",x=g?GP[PY.i]:PP[PY.i];
+gpLoad(function(){try{
+var c=new google.payments.api.PaymentsClient({environment:GPAY.env});
+c.isReadyToPay(Object.assign(gpBase(),{allowedPaymentMethods:[gpCard()]})).then(function(r){
+if(!r.result){toast("Bu qurilma/brauzerda Google Pay mavjud emas");return}
+var req=Object.assign(gpBase(),{allowedPaymentMethods:[gpCard()],transactionInfo:{totalPriceStatus:"FINAL",totalPrice:String(x[2])+".00",currencyCode:GPAY.currency,countryCode:GPAY.country},merchantInfo:{merchantName:GPAY.merchantName}});
+if(GPAY.merchantId)req.merchantInfo.merchantId=GPAY.merchantId;
+return c.loadPaymentData(req).then(function(pd){var tok=pd&&pd.paymentMethodData&&pd.paymentMethodData.tokenizationData&&pd.paymentMethodData.tokenizationData.token;
+return gpVerify(tok,x,g).then(function(ok){if(ok)payGrant(x,g);else toast("To‘lov tasdiqlanmadi")})})
+}).catch(function(err){if(err&&err.statusCode==="CANCELED")return;toast("Google Pay xatosi. Qayta urinib ko‘ring")})
+}catch(x2){toast("Google Pay ishga tushmadi")}})}
+var _pg=payGo;
+payGo=function(m){if(m==="gpay")return gpayStart();_pg(m)};
+payHTML=function(){var g=PY.t==="g",x=g?GP[PY.i]:PP[PY.i],ti=g?(x[0]+x[1])+" olmos":"Premium · "+x[1],pr=x[2];
+return '<div class="dim" onclick="payClose()"></div><div class="sheet"><div class="shh"></div><h3>To‘lov</h3><div class="shs"><span>'+ic(g?"gem":"crown",22)+'</span><div><b>'+ti+'</b><small>'+(g&&x[1]?x[0]+' + '+x[1]+' bonus':g?x[0]+' olmos':'Barcha Premium imkoniyatlar')+'</small></div><strong>'+money(pr)+'</strong></div>'
++'<div class="sec">To‘lov usuli</div><button class="gpb" onclick="payGo(\'gpay\')"><span class="gg">G</span> Pay bilan to‘lash</button><small style="text-align:center;margin-bottom:6px">Karta Google hamyoningizdan olinadi yoki yangi karta qo‘shasiz</small>'
++'<button class="pm" onclick="payGo(\'payme\')"><i style="background:#33ccc9">P</i>Payme</button><button class="pm" onclick="payGo(\'click\')"><i style="background:#1e88e5">C</i>Click</button><button class="pm" onclick="payGo(\'uzum\')"><i style="background:#7c3aed">U</i>Uzum / Humo / Uzcard</button>'
++(PAY.test?'<small class="ptn">Test rejimi: haqiqiy pul yechilmaydi.</small>':'')+'<button class="btn ghost" style="margin-top:10px" onclick="payClose()">Bekor qilish</button></div>'};
+
+/* ================= PREMIUM ================= */
+ACCS.push(["#d4a017","#a77a1c"],["#e1306c","#b3235a"],["#7c3aed","#5b21b6"]);
+var _setAcc=setAcc;
+setAcc=function(i){if(i>=6&&!isPrem()){toast("Bu rang Premium uchun");TAB="prem";VW=null;return home()}_setAcc(i)};
+var _chest=chest;
+chest=function(){var t=iso();if(U.chd===t)return toast("Bugungi sovg‘a olingan. Ertaga qaytib keling!");
+var g=5+Math.floor(Math.random()*16);if(isPrem())g*=2;U.gems+=g;U.chd=t;sv();toast("+"+g+" olmos"+(isPrem()?" (Premium 2×)":""));home(1)};
+hPrem=function(){var on=isPrem(),dl=on?Math.ceil((U.prem-Date.now())/864e5):0;
+var F=[["heart","Cheksiz yurak","Xato qilsangiz ham dars to‘xtamaydi (test va qiyin modullardan tashqari)",""],
+["gem","Har darsda 2× olmos","Har dars uchun 20 olmos, kunlik sovg‘a ham 2 barobar",""],
+["snow","Streak muzlatish","Har oy uchun +2 ta, avtomatik beriladi",""],
+["mic","Talaffuz mashqi","Gapiring — ilova talaffuzingizni foizda baholaydi","pron"],
+["globe","AI suhbat","O‘rganayotgan tilingizda sun’iy intellekt bilan yozishmalar, xatolar tuzatiladi","chat"],
+["star","Maxsus ranglar","Sozlamalarda yana 3 ta eksklyuziv mavzu rangi",""],
+["crown","Premium nishoni","Profilingizda oltin toj belgisi",""]];
+return '<div class="ob"><div class="phr"><span class="pcw">'+ic("crown",40)+'</span><h2>Tilchi Premium</h2><p class="os" style="margin:0">'+(on?'Faol · yana '+dl+' kun':'O‘rganishni cheklovlarsiz davom ettiring')+'</p></div>'
++F.map(function(f){return '<div class="pfe"><span>'+ic(f[0],22)+'</span><div><b>'+f[1]+'</b><small>'+f[2]+'</small></div>'+(f[3]?'<button class="fb" onclick="'+(f[3]==="pron"?'prStart()':'chOpen()')+'">'+(on?'Ochish':ic("lock",13)+' Premium')+'</button>':'')+'</div>'}).join("")
++'<div class="ppl">'+PP.map(function(p,i){return '<button class="pp'+(i===1?' hot':'')+'" onclick="payOpen(\'p\','+i+')">'+(p[3]?'<em>'+p[3]+'</em>':'')+'<b>'+p[1]+'</b><strong>'+money(p[2])+'</strong><small>'+(p[0]===12?money(Math.round(p[2]/12))+' / oy':'har oy yangilanadi')+'</small></button>'}).join("")+'</div>'
++'<button class="gpb" style="margin-top:14px" onclick="payOpen(\'p\',1)"><span class="gg">G</span> Pay bilan to‘lash</button>'
++(PAY.test?'<small style="margin-top:10px">Test rejimi: haqiqiy to‘lov ulanmagan.</small>':'')+'</div>'};
+
+/* --- Talaffuz mashqi --- */
+var PR=null,PRM=null;
+function nrm(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\p{L}\p{N}]/gu,"")}
+function lev(a,b){var m=a.length,n=b.length,d=[],i,j;for(i=0;i<=m;i++){d[i]=[i]}for(j=1;j<=n;j++)d[0][j]=j;
+for(i=1;i<=m;i++)for(j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n]}
+function sim(a,b){a=nrm(a);b=nrm(b);if(!a||!b)return 0;return 1-lev(a,b)/Math.max(a.length,b.length)}
+prStart=function(){if(!isPrem()){toast("Talaffuz mashqi — Premium imkoniyati");TAB="prem";VW=null;return home()}
+var a=learned();if(!a.length)a=wd(U.lang,0).map(function(x,i){return{w:x.w,r:x.r,u:UZP[0][i]}});
+PR={q:sh(a).slice(0,10),i:0,res:null,sc:0,busy:0,paid:0};TAB="pron";VW=null;home()};
+window.prStart=prStart;
+function prR(){if(TAB==="pron")home(1)}
+window.prNext=function(){PR.i++;PR.res=null;prR()};
+window.prMic=function(){if(PR.busy){try{PRM.stop()}catch(x){}return}
+var c=PR.q[PR.i],lc=lg(U.lang)[3];
+micOK().then(function(){PR.busy=1;PR.res=null;prR();
+PRM=listen(lc,{err:function(er){PR.busy=0;prR();toast(micErr(er))},
+end:function(got,alts){PR.busy=0;var best=0,heard=got||"";(alts&&alts.length?alts:[got||""]).forEach(function(a){var s=sim(a,c.w);if(s>=best){best=s;heard=a}});
+PR.res={h:heard,s:heard?Math.round(best*100):0};PR.sc+=PR.res.s;prR()}});
+if(!PRM){PR.busy=0;prR()}
+}).catch(function(){toast("Mikrofonga ruxsat bering (brauzer sozlamalari)")})};
+function hPron(){if(!PR)return '';
+var back='<div class="aeh"><button class="x" onclick="TAB=\'prem\';home()">'+ic("back",22)+'</button><b>Talaffuz mashqi</b><span style="width:30px"></span></div>';
+if(PR.i>=PR.q.length){var avg=Math.round(PR.sc/PR.q.length);if(!PR.paid){PR.paid=1;gain(10+Math.round(avg/10),5);sv()}
+return back+'<div class="end"><div class="big">'+ic("mic",56)+'</div><h1>Mashq tugadi</h1><div class="stats"><div class="stat"><b>O‘rtacha</b><span>'+avg+'%</span></div><div class="stat"><b>XP</b><span>+'+(10+Math.round(avg/10))+'</span></div></div><button class="btn" onclick="prStart()">Yana bir bor</button><button class="btn ghost" style="margin-top:10px" onclick="TAB=\'prem\';home()">Yopish</button></div>'}
+var c=PR.q[PR.i],r=PR.res,col=r?(r.s>=85?'var(--ok)':r.s>=60?'var(--gold)':'var(--bad)'):'var(--acc)';
+return back+'<div class="ob"><div class="prog" style="margin-bottom:6px"><i style="width:'+Math.round(PR.i/PR.q.length*100)+'%"></i></div><small>'+(PR.i+1)+' / '+PR.q.length+'</small>'
++'<div class="fcard" style="cursor:default;margin:14px 0"><div>'+e(c.w)+'</div>'+(c.r?'<small>'+e(c.r)+'</small>':'')+'<small>'+e(c.u||"")+'</small><button class="spk" data-t="'+e(c.w)+'" onclick="say(this.dataset.t)">'+ic("speaker",18)+' Tinglash</button></div>'
++'<button class="btn'+(PR.busy?' rec':'')+'" onclick="prMic()">'+ic("mic",18)+' '+(PR.busy?'Eshityapman… (to‘xtatish)':'Gapirish')+'</button>'
++(r?'<div class="psc"><i style="width:'+r.s+'%;background:'+col+'"></i></div><div class="prw" style="color:'+col+'">'+r.s+'%</div><p style="text-align:center;color:var(--mut)">'+(r.h?'Eshitilgani: <b>'+e(r.h)+'</b>':'Hech narsa eshitilmadi')+'</p><p style="text-align:center">'+(r.s>=85?'Ajoyib talaffuz!':r.s>=60?'Yaxshi. Yana bir bor urinib ko‘ring.':'Avval 🔊 ni tinglang, so‘ng qayta urinib ko‘ring.')+'</p><div class="two"><button class="btn ghost" onclick="prMic()">Qayta</button><button class="btn" onclick="prNext()">Keyingi</button></div>':'<p style="text-align:center;color:var(--mut);margin-top:12px">Tugmani bosing va so‘zni ayting</p>')+'</div>'}
+
+/* --- AI suhbat --- */
+var CH=null,CHM=null;
+chOpen=function(){if(!isPrem()){toast("AI suhbat — Premium imkoniyati");TAB="prem";VW=null;return home()}
+CH={m:[],busy:0};TAB="chat";VW=null;home();chSend(null)};
+window.chOpen=chOpen;
+function chR(){if(TAB==="chat"){home(1);setTimeout(function(){window.scrollTo(0,document.body.scrollHeight);var i=document.getElementById("chi");if(i&&!CH.busy)i.focus()},30)}}
+function chSend(txt){if(!CH||CH.busy)return;
+if(txt!=null){txt=txt.trim();if(!txt)return;CH.m.push({r:"u",t:txt})}
+CH.busy=1;chR();var n=lg(U.lang)[1];
+var hist=CH.m.slice(-8).map(function(x){return(x.r==="u"?"Learner: ":"Tutor: ")+x.t.split("\n")[0]}).join("\n");
+var p='You are a friendly '+n+' language tutor chatting with an Uzbek-speaking learner at level '+lvName(lvg())+'. Reply in '+n+' with at most 2 short simple sentences and end with a short question to keep the chat going. Then on a NEW line write the Uzbek translation in Latin script inside parentheses. If the learner\'s last message contained a mistake, add a THIRD line starting with "Tuzatish:" explaining the fix in Uzbek (Latin script). No other text.\n\n'+(hist?'Conversation:\n'+hist+'\nTutor:':'Start the conversation with a friendly greeting.');
+aiCall(p).then(function(t){t=(t||"").trim();if(!t)throw 0;CH.m.push({r:"a",t:t});CH.busy=0;chR()}).catch(function(){if(CH)CH.busy=0;chR();toast("AI javob bermadi, qayta urinib ko‘ring")})}
+window.chGo=function(){var i=document.getElementById("chi");if(!i)return;var v=i.value;i.value="";chSend(v)};
+window.chMic=function(){if(CHM){try{CHM.stop()}catch(x){}return}
+micOK().then(function(){var i=document.getElementById("chi");toast("Gapiring…");
+CHM=listen(lg(U.lang)[3],{part:function(t){if(i)i.value=t},err:function(c){CHM=null;toast(micErr(c))},end:function(got){CHM=null;if(got&&got.trim()){if(i)i.value="";chSend(got)}}})
+}).catch(function(){toast("Mikrofonga ruxsat bering (brauzer sozlamalari)")})};
+function hChat(){if(!CH)return '';
+var h='<div class="aeh"><button class="x" onclick="TAB=\'prem\';home()">'+ic("back",22)+'</button><b>AI suhbat · '+lg(U.lang)[1]+'</b><span style="width:30px"></span></div><div class="ob" style="padding-top:8px"><div class="chl">';
+CH.m.forEach(function(m){if(m.r==="u"){h+='<div class="cb u">'+e(m.t)+'</div>';return}
+var L2=m.t.split("\n").filter(function(x){return x.trim()}),main=(L2[0]||"").replace(/\s*\([^)]*\)\s*$/,"");
+h+='<div class="cb a"><span>'+e(L2[0]||"")+'</span>'+L2.slice(1).map(function(x){return /^Tuzatish/i.test(x)?'<span class="fx">'+e(x)+'</span>':'<small>'+e(x)+'</small>'}).join("")+'<button class="spk sm" data-t="'+e(main)+'" onclick="say(this.dataset.t)">'+ic("speaker",16)+'</button></div>'});
+if(CH.busy)h+='<div class="cb a"><small>Yozyapti…</small></div>';
+return h+'</div><div class="chin"><input class="inp" id="chi" placeholder="'+lg(U.lang)[1]+' tilida yozing…" autocomplete="off" onkeydown="if(event.key===\'Enter\')chGo()"><button class="pe" onclick="chMic()" aria-label="Gapirish">'+ic("mic",18)+'</button><button class="btn" style="width:auto;padding:12px 16px" onclick="chGo()">Yuborish</button></div></div>'}
+
+/* ================= DARAJA TIZIMI ================= */
+var HARD=[{n:"Eshitish sinovi",d:"Faqat eshitib tushunish va yozish",c:"#e0526a",ty:["l","t"]},
+{n:"Yozish ustasi",d:"Javoblarning ko‘pi qo‘lda yoziladi",c:"#7c3aed",ty:["t","t","b"]},
+{n:"Daraja imtihoni",d:"Aralash savollar, atigi 3 ta yurak",c:"#d4a017",ty:["a","b","t","l"]}];
+var LVN=["A1–A2","B1","B2","C1","C2"];
+lvName=function(n){return n<=5?LVN[n-1]:"C2+ ("+n+")"};window.lvName=lvName;
+lvg=function(){U.lv=U.lv||{};return U.lv[U.lang]||1};window.lvg=lvg;
+function allDone(){for(var m=0;m<NM;m++)if(mp(m)<N)return false;return true}
+function hk(){return U.lang+"_"+lvg()}
+function hpg(){U.hp=U.hp||{};return U.hp[hk()]||0}
+function lvCheck(){U.lv=U.lv||{};if(!U.lv[U.lang]&&allDone()){U.lv[U.lang]=2;sv();toast("Daraja oshdi: "+lvName(2)+"! Yangi qiyin modullar ochildi");return true}return false}
+function hardQs(i){var lv=lvg(),n=Math.min(30,10+lv*2),tys=HARD[i].ty,pool=[],m,k;
+for(m=0;m<NM;m++){var C=ctxOf(m);for(k=0;k<C.W.length;k++)pool.push({C:C,k:k})}
+pool=sh(pool);var Q=[],seen={};
+for(var j=0;j<pool.length&&Q.length<n;j++){var p=pool[j],u=p.C.Z[p.k];if(seen[u])continue;seen[u]=1;Q.push(qFor(p.C,p.k,tys[Q.length%tys.length]))}
+Q.push(mtQ(pool.slice(0,4).map(function(p){return{W:p.C.W[p.k],u:p.C.Z[p.k]}})));return Q}
+hardStart=function(i){if(i>hpg())return toast("Avval oldingi modulni tugating");
+begin({m:0,s:-1,hard:i,qs:hardQs(i)});var extra=L.h0-5;L.h0=L.hearts=3+extra;L.pre=false;ask()};
+window.hardStart=hardStart;
+function hardWin(){var i=L.hard,lv=lvg(),xp=25+lv*5+L.hearts*5,g=15+lv*5;if(L.dbl)xp*=2;
+gain(xp,g);U.dsec++;if(L.hearts>=L.h0){U.dperf++;U.perf++}
+var fresh=(i===hpg()),up=false;if(fresh){U.hp[hk()]=i+1;if(i===HARD.length-1){U.lv[U.lang]=lv+1;up=true}}
+sv();
+$.innerHTML='<div class="end"><div class="big">'+ic(up?"crown":"trophy",56)+'</div><h1>'+(up?"Yangi daraja: "+lvName(lvg())+"!":"Modul tugadi!")+'</h1><div class="stats"><div class="stat"><b>XP</b><span>'+xp+'</span></div><div class="stat"><b>Olmos</b><span>+'+g+'</span></div><div class="stat"><b>Streak</b><span>'+U.streak+'</span></div></div>'+(up?'<p>Yangi, yanada qiyinroq modullar ochildi.</p>':fresh?'<p>Keyingi modul ochildi!</p>':'')+'<br><button class="btn" onclick="VW=null;TAB=\'home\';home()">Davom etish</button></div>'}
+var _win=win;
+win=function(){if(L&&L.hard!=null){hardWin();return}_win();lvCheck()};
+function hardCard(){var lv=lvg();if(lv<2)return "";var p=hpg();
+return '<div class="sec">Daraja '+lv+' · '+lvName(lv)+'</div><div class="hdc">'+HARD.map(function(H,i){var s=i<p?"done":i===p?"cur":"lock";
+return '<button class="hrd '+s+'" style="--tc:'+H.c+'" '+(s==="lock"?"disabled":'onclick="hardStart('+i+')"')+'><span class="hn">'+(s==="done"?ic("check",20):s==="lock"?ic("lock",18):(i+1))+'</span><span class="ht"><b>'+H.n+'</b><small>'+H.d+'</small></span><em>'+(s==="done"?"Takrorlash":s==="cur"?"Boshlash":"")+'</em></button>'}).join("")+'</div>'}
+var _hHome=hHome;
+hHome=function(){lvCheck();var h=_hHome(),tag='<div class="sec">Mavzular</div>',hc=hardCard();return hc?h.replace(tag,hc+tag):h};
+var _hMe=hMe;
+hMe=function(){var h=_hMe();
+h=h.replace('<div class="ign"><b>'+e(U.name)+'</b>','<div class="ign"><b>'+e(U.name)+'</b>'+(isPrem()?' <span class="pbd">'+ic("crown",15)+'</span>':''));
+h=h.replace('<small>Ro‘yxatdan o‘tgan:','<span class="lvb">Daraja '+lvg()+' · '+lvName(lvg())+'</span><small>Ro‘yxatdan o‘tgan:');return h};
+
+/* ================= home: yangi sahifalar ================= */
+var _home=home;
+home=function(keep){
+if(U&&(TAB==="pron"||TAB==="chat")){applyTheme();
+$.innerHTML=(TAB==="pron"?hPron():hChat())+nav()+(PY?payHTML():"");
+if(!keep)window.scrollTo(0,0);if(AV.id)avStop();return}
+_home(keep)};
+window.home=home;
+
+try{if(U){applyTheme();home()}}catch(x){}
+})();
+
+</script>
 </body>
 </html>
