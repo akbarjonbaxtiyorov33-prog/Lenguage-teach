@@ -1257,6 +1257,49 @@ var CSS=`
 .chin .inp{margin:0;flex:1}
 .psc{height:12px;border-radius:7px;background:var(--soft);overflow:hidden;margin:10px 0}.psc i{display:block;height:100%;border-radius:7px;transition:width .4s}
 .prw{font-size:34px;font-weight:800;font-family:var(--fd);text-align:center}
+.lvh{display:flex;justify-content:space-between;align-items:baseline;margin:0 16px 6px}.lvh b{font-family:var(--fd)}.lvh span{color:var(--mut);font-weight:700;font-size:13px}
+.lvp{height:7px;border-radius:5px;background:var(--soft);overflow:hidden;margin:8px 0 4px}.lvp i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--gold));border-radius:5px;transition:width .4s}
+.lvt{display:block;margin-bottom:4px}
+.hg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 16px 6px}
+.ht2{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px 12px 16px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--fg);font:inherit;text-align:left;cursor:pointer;overflow:hidden;box-shadow:0 8px 18px -14px rgba(0,0,0,.45)}
+.ht2:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tc)}
+.ht2 b{font-family:var(--fd);font-size:14px;line-height:1.2}
+.ht2 .hn{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;background:var(--tc);font-size:14px}
+.ht2.cur{border-color:var(--tc);box-shadow:0 0 0 2px color-mix(in srgb,var(--tc) 30%,transparent),0 8px 18px -14px rgba(0,0,0,.45)}
+.ht2.done .hn{background:var(--ok)}.ht2.lock{opacity:.5;cursor:not-allowed}.ht2.lock .hn{background:var(--line);color:var(--mut)}
+.dif{font-size:9px;letter-spacing:2px;color:var(--tc)}.dif s{text-decoration:none;opacity:.25}
+.od{position:absolute;right:0;bottom:0;width:11px;height:11px;border-radius:50%;background:#22c55e;border:2px solid var(--card)}
+.lgh{padding:4px 0 10px}.lgh h2{margin:0}.lgh small{color:var(--mut)}
+.lrow{display:flex;align-items:center;gap:12px;padding:10px 12px;margin:0 0 8px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.lrow.me{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 10%,var(--card))}
+.lrk{width:22px;text-align:center;font-family:var(--fd);color:var(--mut)}
+.lrow:nth-child(2) .lrk{color:#d4a017}.lrow:nth-child(3) .lrk{color:#94a3b8}.lrow:nth-child(4) .lrk{color:#b45309}
+.lav,.fa,.sa{position:relative}
+.lav{width:44px;height:44px;border-radius:50%;background:var(--soft);flex:none;display:flex;align-items:center;justify-content:center;font-weight:700}
+.lav svg,.fa svg,.sa svg{width:100%;height:100%;border-radius:50%;display:block}
+.fa,.sa{background:var(--soft);color:var(--fg)}
+.lnm{flex:1;min-width:0}.lnm b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lnm em{font-style:normal;font-size:11px;background:var(--acc);color:#fff;border-radius:99px;padding:1px 7px;margin-left:4px}
+.lnm small{color:var(--mut)}
+.lxp{font-family:var(--fd);font-weight:800;text-align:right}.lxp small{display:block;font-size:10px;color:var(--mut);font-weight:600}
+.lge{text-align:center;padding:18px 12px;border:1px dashed var(--line);border-radius:16px;color:var(--mut);margin:8px 0}.lge .btn{margin-top:8px}
+.ig .igs>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 0;margin:0 3px}
+.ig .ign{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:10px 0}
+.ig .igg>div{border-radius:16px;border-top:3px solid var(--acc);box-shadow:0 8px 18px -14px rgba(0,0,0,.5);background:linear-gradient(180deg,var(--card),var(--soft))}
+.ig .igg .ic{color:var(--acc)}
+.ig .hi i{box-shadow:0 6px 14px -10px rgba(0,0,0,.5);border-color:color-mix(in srgb,var(--acc) 40%,var(--line))}
+.ig .igbt .btn{border-radius:12px}
+.avw #avs,#avs{transform-origin:50% 90%}
+#avs.talking{animation:avSay 1.7s ease-in-out infinite alternate}
+@keyframes avSay{0%{transform:rotate(-1.4deg) translateY(0)}100%{transform:rotate(1.4deg) translateY(-1.5px)}}
+.avb.speaking{border-color:var(--acc)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 16%,transparent),0 8px 18px -12px rgba(0,0,0,.45)}
+.avb.speaking:after{content:"";position:absolute;right:12px;bottom:9px;width:18px;height:11px;border-radius:2px;background:repeating-linear-gradient(90deg,var(--acc) 0 3px,transparent 3px 6px);animation:avEq .55s ease-in-out infinite alternate}
+@keyframes avEq{from{clip-path:inset(55% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+.ig .avb{font-size:13.5px;border-radius:16px;padding:9px 14px;box-shadow:0 8px 18px -12px rgba(0,0,0,.4)}
+.ig .avb.on{padding-right:40px}
+.ae{border-radius:99px!important;box-shadow:0 4px 10px -8px rgba(0,0,0,.5);font-weight:600;transition:transform .12s}
+.ae:active{transform:scale(.95)}
+.ae.pri{background:linear-gradient(135deg,var(--acc),var(--acc2))!important;color:#fff!important;border-color:transparent!important}
+.nomo #avs.talking{animation:none}
 `;
 var st=document.createElement("style");st.textContent=CSS;document.head.appendChild(st);
 
@@ -1310,7 +1353,7 @@ var GPAY={env:"TEST",merchantId:"",merchantName:"Tilchi",gateway:"example",gatew
 window.GPAY=GPAY;
 function gpLoad(cb){if(window.google&&google.payments&&google.payments.api)return cb();
 var ex=document.getElementById("gpjs");if(ex){ex.addEventListener("load",cb);return}
-var s=document.createElement("script");s.id="gpjs";s.src="https://pay.google.com/gp/p/js/pay.js";s.onload=cb;s.onerror=function(){toast("Google Pay yuklanmadi. Internetni tekshiring")};document.head.appendChild(s)}
+var s=document.createElement("script");s.id="gpjs";s.src="https://pay.google.com/gp/p/js/pay.js";s.onload=cb;s.onerror=function(){gpFail("Google Pay yuklanmadi. Boshqa to‘lov usulini tanlang")};document.head.appendChild(s)}
 function gpBase(){return{apiVersion:2,apiVersionMinor:0}}
 /* PRODUCTION rejimida to‘lov tokeni serverda tekshirilishi shart. GPAY.verifyUrl ga server manzilini yozing:
    server {token, amount, item} oladi va {ok:true} qaytaradi. Server bo‘lmasa premium/olmos BERILMAYDI. */
@@ -1325,15 +1368,18 @@ function gpayStart(){var g=PY.t==="g",x=g?GP[PY.i]:PP[PY.i];
 gpLoad(function(){try{
 var c=new google.payments.api.PaymentsClient({environment:GPAY.env});
 c.isReadyToPay(Object.assign(gpBase(),{allowedPaymentMethods:[gpCard()]})).then(function(r){
-if(!r.result){toast("Bu qurilma/brauzerda Google Pay mavjud emas");return}
+if(!r.result){gpFail("Bu qurilmada Google Pay mavjud emas. Boshqa usulni tanlang");return}
 var req=Object.assign(gpBase(),{allowedPaymentMethods:[gpCard()],transactionInfo:{totalPriceStatus:"FINAL",totalPrice:String(x[2])+".00",currencyCode:GPAY.currency,countryCode:GPAY.country},merchantInfo:{merchantName:GPAY.merchantName}});
 if(GPAY.merchantId)req.merchantInfo.merchantId=GPAY.merchantId;
 return c.loadPaymentData(req).then(function(pd){var tok=pd&&pd.paymentMethodData&&pd.paymentMethodData.tokenizationData&&pd.paymentMethodData.tokenizationData.token;
-return gpVerify(tok,x,g).then(function(ok){if(ok)payGrant(x,g);else toast("To‘lov tasdiqlanmadi")})})
-}).catch(function(err){if(err&&err.statusCode==="CANCELED")return;toast("Google Pay xatosi. Qayta urinib ko‘ring")})
-}catch(x2){toast("Google Pay ishga tushmadi")}})}
+return gpVerify(tok,x,g).then(function(ok){if(ok)payGrant(x,g);else{PY=null;toast("To‘lov tasdiqlanmadi")}})})
+}).catch(function(err){if(err&&err.statusCode==="CANCELED"){PY=null;return}gpFail("Google Pay xatosi. Boshqa usulni tanlang")})
+}catch(x2){gpFail("Google Pay ishga tushmadi")}})}
 var _pg=payGo;
 payGo=function(m){if(m==="gpay")return gpayStart();_pg(m)};
+/* To‘lash tugmasi bosilishi bilan Google Pay oynasi chiqadi. Ishlamasa (qurilmada yo‘q) — boshqa usullar ro‘yxati ochiladi. */
+function gpFail(m){if(PY){if(m)toast(m);home(1)}}
+payOpen=function(t,i){PY={t:t,i:i};toast("Google Pay ochilmoqda…");gpayStart()};
 payHTML=function(){var g=PY.t==="g",x=g?GP[PY.i]:PP[PY.i],ti=g?(x[0]+x[1])+" olmos":"Premium · "+x[1],pr=x[2];
 return '<div class="dim" onclick="payClose()"></div><div class="sheet"><div class="shh"></div><h3>To‘lov</h3><div class="shs"><span>'+ic(g?"gem":"crown",22)+'</span><div><b>'+ti+'</b><small>'+(g&&x[1]?x[0]+' + '+x[1]+' bonus':g?x[0]+' olmos':'Barcha Premium imkoniyatlar')+'</small></div><strong>'+money(pr)+'</strong></div>'
 +'<div class="sec">To‘lov usuli</div><button class="gpb" onclick="payGo(\'gpay\')"><span class="gg">G</span> Pay bilan to‘lash</button><small style="text-align:center;margin-bottom:6px">Karta Google hamyoningizdan olinadi yoki yangi karta qo‘shasiz</small>'
@@ -1416,45 +1462,172 @@ h+='<div class="cb a"><span>'+e(L2[0]||"")+'</span>'+L2.slice(1).map(function(x)
 if(CH.busy)h+='<div class="cb a"><small>Yozyapti…</small></div>';
 return h+'</div><div class="chin"><input class="inp" id="chi" placeholder="'+lg(U.lang)[1]+' tilida yozing…" autocomplete="off" onkeydown="if(event.key===\'Enter\')chGo()"><button class="pe" onclick="chMic()" aria-label="Gapirish">'+ic("mic",18)+'</button><button class="btn" style="width:auto;padding:12px 16px" onclick="chGo()">Yuborish</button></div></div>'}
 
-/* ================= DARAJA TIZIMI ================= */
-var HARD=[{n:"Eshitish sinovi",d:"Faqat eshitib tushunish va yozish",c:"#e0526a",ty:["l","t"]},
-{n:"Yozish ustasi",d:"Javoblarning ko‘pi qo‘lda yoziladi",c:"#7c3aed",ty:["t","t","b"]},
-{n:"Daraja imtihoni",d:"Aralash savollar, atigi 3 ta yurak",c:"#d4a017",ty:["a","b","t","l"]}];
-var LVN=["A1–A2","B1","B2","C1","C2"];
+/* ================= DARAJA TIZIMI: har daraja = 10 ta alohida, qiyinroq modul ================= */
+var LVN=["A1–A2","B1","B2","C1","C2"],TIER=["","","Pro","Expert","Master","Legend"];
 lvName=function(n){return n<=5?LVN[n-1]:"C2+ ("+n+")"};window.lvName=lvName;
 lvg=function(){U.lv=U.lv||{};return U.lv[U.lang]||1};window.lvg=lvg;
 function allDone(){for(var m=0;m<NM;m++)if(mp(m)<N)return false;return true}
+function doneCnt(){var c=0;for(var m=0;m<NM;m++)if(mp(m)>=N)c++;return c}
 function hk(){return U.lang+"_"+lvg()}
 function hpg(){U.hp=U.hp||{};return U.hp[hk()]||0}
-function lvCheck(){U.lv=U.lv||{};if(!U.lv[U.lang]&&allDone()){U.lv[U.lang]=2;sv();toast("Daraja oshdi: "+lvName(2)+"! Yangi qiyin modullar ochildi");return true}return false}
-function hardQs(i){var lv=lvg(),n=Math.min(30,10+lv*2),tys=HARD[i].ty,pool=[],m,k;
-for(m=0;m<NM;m++){var C=ctxOf(m);for(k=0;k<C.W.length;k++)pool.push({C:C,k:k})}
-pool=sh(pool);var Q=[],seen={};
-for(var j=0;j<pool.length&&Q.length<n;j++){var p=pool[j],u=p.C.Z[p.k];if(seen[u])continue;seen[u]=1;Q.push(qFor(p.C,p.k,tys[Q.length%tys.length]))}
-Q.push(mtQ(pool.slice(0,4).map(function(p){return{W:p.C.W[p.k],u:p.C.Z[p.k]}})));return Q}
+function tier(){return TIER[Math.min(lvg(),5)]||"Legend"}
+function lvCheck(){U.lv=U.lv||{};if(!U.lv[U.lang]&&allDone()){U.lv[U.lang]=2;sv();toast("Daraja oshdi: "+lvName(2)+"! Yangi 10 ta qiyin modul ochildi");return true}return false}
+/* Lotin yozuvidagi so‘zlar uchun “o‘zbekchadan chet tiliga yozing” savoli (qiyinroq tur) */
+function latinW(s){return /^[\p{Script=Latin}\s'’‘`\-.,!?]+$/u.test(s)}
+function hQ(C,k,ty){if(ty==="u"){var w=C.W[k].w;if(latinW(w)){var q={t:"t",h:"“"+C.Z[k]+"” ni "+lg(U.lang)[1]+" tilida yozing",p:{w:C.Z[k],r:""},a:w,i:ico(C.Z[k])};q.k=k;q.ty="u";q.C=C;return q}ty="t"}return qFor(C,k,ty)}
+function hardMix(i,lv){if(lv>=3)return["u","t","l","u"];return i<3?["t","l","a","b"]:i<6?["u","t","l","a"]:["u","t","l","u","t"]}
+function hardHearts(i,lv){return lv<3?(i<5?4:3):(i<7?3:2)}
+function hardQs(i){var lv=lvg(),n=Math.min(34,12+i+lv*2),C=ctxOf(i),mix=hardMix(i,lv),Q=[],items=[],k,m;
+for(k=0;k<C.W.length;k++){items.push({W:C.W[k],u:C.Z[k]});var seen={};mix.forEach(function(ty){if(seen[ty])return;seen[ty]=1;Q.push(hQ(C,k,ty))})}
+var rv=[];for(m=0;m<NM;m++)if(m!==i){var D=ctxOf(m);for(k=0;k<D.W.length;k++)rv.push({C:D,k:k})}
+sh(rv).slice(0,4+i*2).forEach(function(r){Q.push(hQ(r.C,r.k,mix[Math.floor(Math.random()*mix.length)]))});
+Q=sh(dedupe(Q)).slice(0,n);Q.push(mtQ(sh(items)));return Q}
+/* javob tekshirishda urg‘u/diakritika e’tiborga olinmaydi (café = cafe) */
+nz=function(s){return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[‘’`ʻʼ']/g,"'").replace(/\s+/g," ").trim()};
 hardStart=function(i){if(i>hpg())return toast("Avval oldingi modulni tugating");
-begin({m:0,s:-1,hard:i,qs:hardQs(i)});var extra=L.h0-5;L.h0=L.hearts=3+extra;L.pre=false;ask()};
+var o={m:i,mod:i,s:-1,hard:i,qs:hardQs(i)};o.n=o.qs.length;o.h0=o.hearts=hardHearts(i,lvg())+(U.xh||0);o.pre=false;U.xh=0;o.dbl=U.dbl>0;if(o.dbl)U.dbl--;o.sel=null;L=o;sv();ask()};
 window.hardStart=hardStart;
-function hardWin(){var i=L.hard,lv=lvg(),xp=25+lv*5+L.hearts*5,g=15+lv*5;if(L.dbl)xp*=2;
+function hardWin(){var i=L.hard,lv=lvg(),xp=20+i*3+lv*5+L.hearts*4,g=12+i*2+lv*3;if(L.dbl)xp*=2;
 gain(xp,g);U.dsec++;if(L.hearts>=L.h0){U.dperf++;U.perf++}
-var fresh=(i===hpg()),up=false;if(fresh){U.hp[hk()]=i+1;if(i===HARD.length-1){U.lv[U.lang]=lv+1;up=true}}
+var fresh=(i===hpg()),up=false;U.hp=U.hp||{};U.lv=U.lv||{};if(fresh){U.hp[hk()]=i+1;if(i===NM-1){U.lv[U.lang]=lv+1;up=true}}
 sv();
-$.innerHTML='<div class="end"><div class="big">'+ic(up?"crown":"trophy",56)+'</div><h1>'+(up?"Yangi daraja: "+lvName(lvg())+"!":"Modul tugadi!")+'</h1><div class="stats"><div class="stat"><b>XP</b><span>'+xp+'</span></div><div class="stat"><b>Olmos</b><span>+'+g+'</span></div><div class="stat"><b>Streak</b><span>'+U.streak+'</span></div></div>'+(up?'<p>Yangi, yanada qiyinroq modullar ochildi.</p>':fresh?'<p>Keyingi modul ochildi!</p>':'')+'<br><button class="btn" onclick="VW=null;TAB=\'home\';home()">Davom etish</button></div>'}
+var note=up?'<p>Yangi 10 ta, yanada qiyinroq modul ochildi.</p>':(fresh&&i<NM-1?'<p>Keyingi modul ochildi: '+e(MODS[i+1].n)+'</p>':'');
+$.innerHTML='<div class="end"><div class="big">'+ic(up?"crown":"trophy",56)+'</div><h1>'+(up?"Yangi daraja: "+lvName(lvg())+"!":"Modul tugadi!")+'</h1><div class="stats"><div class="stat"><b>XP'+(L.dbl?' ×2':'')+'</b><span>'+xp+'</span></div><div class="stat"><b>Olmos</b><span>+'+g+'</span></div><div class="stat"><b>Streak</b><span>'+U.streak+'</span></div></div>'+note+'<br><button class="btn" onclick="VW=null;TAB=\'home\';home()">Davom etish</button></div>'}
 var _win=win;
 win=function(){if(L&&L.hard!=null){hardWin();return}_win();lvCheck()};
 function hardCard(){var lv=lvg();if(lv<2)return "";var p=hpg();
-return '<div class="sec">Daraja '+lv+' · '+lvName(lv)+'</div><div class="hdc">'+HARD.map(function(H,i){var s=i<p?"done":i===p?"cur":"lock";
-return '<button class="hrd '+s+'" style="--tc:'+H.c+'" '+(s==="lock"?"disabled":'onclick="hardStart('+i+')"')+'><span class="hn">'+(s==="done"?ic("check",20):s==="lock"?ic("lock",18):(i+1))+'</span><span class="ht"><b>'+H.n+'</b><small>'+H.d+'</small></span><em>'+(s==="done"?"Takrorlash":s==="cur"?"Boshlash":"")+'</em></button>'}).join("")+'</div>'}
+var h='<div class="sec">Daraja '+lv+' · '+lvName(lv)+'</div><div class="lvh"><b>'+tier()+' modullar</b><span>'+p+' / '+NM+'</span></div><div class="lvp" style="margin:0 16px 10px"><i style="width:'+(p*100/NM)+'%"></i></div><div class="hg">';
+for(var i=0;i<NM;i++){var M=MODS[i],s=i<p?"done":i===p?"cur":"lock",d=Math.ceil((i+1)/2);
+h+='<button class="ht2 '+s+'" style="--tc:'+M.c+'" '+(s==="lock"?"disabled":'onclick="hardStart('+i+')"')+'><span class="hn">'+(s==="done"?ic("check",18):s==="lock"?ic("lock",16):(i+1))+'</span><b>'+e(M.n)+'</b><span class="dif">'+new Array(d+1).join("●")+'<s>'+new Array(6-d).join("●")+'</s></span></button>'}
+return h+'</div>'}
 var _hHome=hHome;
 hHome=function(){lvCheck();var h=_hHome(),tag='<div class="sec">Mavzular</div>',hc=hardCard();return hc?h.replace(tag,hc+tag):h};
 var _hMe=hMe;
-hMe=function(){var h=_hMe();
+hMe=function(){var h=_hMe(),lv=lvg(),c=lv===1?doneCnt():hpg();
 h=h.replace('<div class="ign"><b>'+e(U.name)+'</b>','<div class="ign"><b>'+e(U.name)+'</b>'+(isPrem()?' <span class="pbd">'+ic("crown",15)+'</span>':''));
-h=h.replace('<small>Ro‘yxatdan o‘tgan:','<span class="lvb">Daraja '+lvg()+' · '+lvName(lvg())+'</span><small>Ro‘yxatdan o‘tgan:');return h};
+h=h.replace('<small>Ro‘yxatdan o‘tgan:','<span class="lvb">Daraja '+lv+' · '+lvName(lv)+'</span><div class="lvp"><i style="width:'+(c*10)+'%"></i></div><small class="lvt">Keyingi daraja: '+c+' / '+NM+' modul</small><small>Ro‘yxatdan o‘tgan:');
+return h.replace('Siz bilishingiz mumkin','Tilchi foydalanuvchilari')};
+
+/* ================= HAQIQIY FOYDALANUVCHILAR (soxta/namunaviy ro‘yxat olib tashlandi) ================= */
+/* Sayt server.js orqali ochilganda barcha qurilmalardagi haqiqiy foydalanuvchilar ko‘rinadi.
+   Faylni to‘g‘ridan-to‘g‘ri ochsangiz — faqat shu qurilmadagi akkauntlar. */
+var NET={on:/^https?:$/.test(location.protocol),users:[],ok:false,t:0,sig:"",tts:false};window.NET=NET;
+function netTok(){if(!U.tk){U.tk=Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2)+Date.now().toString(36);sv()}return U.tk}
+var AVD={skin:"#9a5140",shirt:"#f4a23d",eyes:0,mouth:0,hair:0,hc:"#2b1d16",glasses:0,hat:1,hatc:"#8e68c9"};
+/* boshqa foydalanuvchidan kelgan avatar ma’lumoti SVG ichiga tushadi — faqat son va #rangga ruxsat */
+function safeAv(a){var o=Object.assign({},AVD);if(a&&typeof a==="object")Object.keys(AVD).forEach(function(k){var v=a[k];if(typeof AVD[k]==="number"){if(typeof v==="number"&&isFinite(v)&&v>=0&&v<50)o[k]=v}else if(typeof v==="string"&&/^#[0-9a-f]{3,8}$/i.test(v))o[k]=v});return o}
+function avMini(a){return a&&a.av?avSVG(safeAv(a.av)):e(String((a&&(a.name||a.un))||"?").charAt(0).toUpperCase())}
+function isOn(a){return !!a.seen&&Date.now()-a.seen<18e4}
+function netSync(force){if(!NET.on||!U)return;var n=Date.now();if(!force&&n-NET.t<20000)return;NET.t=n;
+try{fetch("/api/sync",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({un:U.un,tk:netTok(),name:U.name,xp:U.xp||0,streak:eff(),lang:U.lang,lv:lvg(),av:U.av,fe:U.fe||[],reg:U.reg})})
+.then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){NET.ok=true;NET.tts=!!j.tts;NET.users=(j.users||[]).filter(function(a){return a&&a.un});
+var s=JSON.stringify(NET.users.map(function(a){return[a.un,a.xp,isOn(a),(a.fe||[]).length]}));
+if(s!==NET.sig){NET.sig=s;if(TAB==="league"||TAB==="fls")home(1);else if(TAB==="me"){var el=document.querySelector(".ig .sg,.ig .lge");if(el)el.outerHTML=sug()}}}).catch(function(){NET.ok=false})}catch(x){}}
+setInterval(function(){netSync()},30000);
+document.addEventListener("visibilitychange",function(){if(!document.hidden)netSync(1)});
+function localU(){var r=[];try{Object.keys(ACC).forEach(function(k){var a=ACC[k];if(a&&a.un&&k!==U.email)r.push({un:a.un,name:a.name,xp:a.xp||0,streak:a.streak||0,lang:a.lang,lv:(a.lv&&a.lv[a.lang])||1,av:a.av,fe:a.fe||[],email:a.email||k,seen:0})})}catch(x){}return r}
+function others(){var m={};localU().forEach(function(a){m[a.un]=a});NET.users.forEach(function(a){if(a.un!==U.un)m[a.un]=Object.assign({},m[a.un]||{},a)});return Object.keys(m).map(function(k){return m[k]}).sort(function(a,b){return(b.xp||0)-(a.xp||0)})}
+function isF(a){var f=U.fe||[];return f.indexOf(a.un)>=0||(!!a.email&&f.indexOf(a.email)>=0)}
+fe_=function(id){U.fe=U.fe||[];var a=others().filter(function(x){return x.un===id||x.email===id})[0],ids=a?[a.un,a.email]:[id],on=U.fe.some(function(x){return ids.indexOf(x)>=0});
+if(on)U.fe=U.fe.filter(function(x){return ids.indexOf(x)<0});else U.fe.push(a?a.un:id);sv();netSync(1);home(1)};
+myFollowers=function(){return others().filter(function(a){var f=a.fe||[];return f.indexOf(U.un)>=0||f.indexOf(U.email)>=0})};
+fCount=function(){return myFollowers().length};
+gCount=function(){return others().filter(isF).length};
+rank=function(){var r=others().map(function(a){return[a.name||a.un,a.xp||0,0,a]});r.push([U.name,U.xp||0,1,{un:U.un,name:U.name,xp:U.xp||0,av:U.av,streak:eff(),lv:lvg(),lang:U.lang,seen:Date.now()}]);return r.sort(function(x,y){return y[1]-x[1]})};
+function fmtX(n){return String(n||0).replace(/\B(?=(\d{3})+(?!\d))/g," ")}
+function lrow(a,i,me){var L2=lg(a.lang)||[];return '<div class="lrow'+(me?' me':'')+'"><b class="lrk">'+(i+1)+'</b><div class="lav">'+avMini(a)+(isOn(a)?'<i class="od"></i>':'')+'</div><div class="lnm"><b>'+e(a.name||a.un)+(me?' <em>Siz</em>':'')+'</b><small>'+(L2[2]||"")+' '+(L2[1]||"")+' · Daraja '+(a.lv||1)+(a.streak?' · 🔥 '+a.streak:'')+'</small></div><span class="lxp">'+fmtX(a.xp)+'<small>XP</small></span></div>'}
+hLeague=function(){var t=secTotal();
+if(t<3)return '<div class="end"><div class="big">'+ic("lock",56)+'</div><h2>Ligani oching</h2><p>Ligaga kirish va boshqalar bilan bellashish uchun yana '+(3-t)+' ta dars tugating.</p></div>';
+var R=rank(),h='<div class="ob"><div class="lgh"><h2>Reyting</h2><small>'+R.length+' ta haqiqiy foydalanuvchi'+(NET.ok?' · onlayn':'')+'</small></div>';
+R.forEach(function(r,i){h+=lrow(r[3],i,r[2])});
+if(R.length===1)h+='<div class="lge"><p>Hali boshqa foydalanuvchi yo‘q. Do‘stlaringizni taklif qiling — ular ro‘yxatdan o‘tishi bilan shu yerda ko‘rinadi.</p><button class="btn" onclick="invite()">Do‘st taklif qilish</button></div>';
+if(!NET.ok)h+='<small style="display:block;margin-top:12px">Hozir faqat shu qurilmada ro‘yxatdan o‘tganlar ko‘rinadi. Hamma foydalanuvchilarni ko‘rish uchun saytni <b>server.js</b> orqali ishga tushiring.</small>';
+return h+'</div>'};
+sug=function(){var o=others().slice(0,20);
+if(!o.length)return '<div class="lge"><p>Hali boshqa foydalanuvchi yo‘q.</p><button class="btn ghost" onclick="invite()">Do‘st taklif qilish</button></div>';
+return '<div class="sg">'+o.map(function(a){var f=isF(a);return '<div class="sc"><div class="sa">'+avMini(a)+(isOn(a)?'<i class="od"></i>':'')+'</div><b>'+e(a.name||a.un)+'</b><small>'+fmtX(a.xp)+' XP</small><button class="fb'+(f?' on':'')+'" data-id="'+e(a.un)+'" onclick="fe_(this.dataset.id)">'+(f?"Obuna ✓":"Obuna bo‘lish")+'</button></div>'}).join("")+'</div>'};
+function prow2(a,lab,labOn){var f=isF(a);return '<div class="fr"><div class="fa">'+avMini(a)+(isOn(a)?'<i class="od"></i>':'')+'</div><div><b>'+e(a.name||a.un)+'</b><small>@'+e(a.un)+' · '+fmtX(a.xp)+' XP</small></div><button class="fb2'+(f?' on':'')+'" data-id="'+e(a.un)+'" onclick="fe_(this.dataset.id)">'+(f?labOn:lab)+'</button></div>'}
+hFls=function(){var F=myFollowers(),G=others().filter(isF),
+h='<div class="aeh"><button class="x" onclick="TAB=\'me\';home()">←</button><b>'+e(U.un)+'</b><span style="width:24px"></span></div><div class="ob" style="padding-top:10px"><div class="seg"><button class="'+(FS==="f"?"on":"")+'" onclick="FS=\'f\';home(1)">'+fmtN(F.length)+' obunachi</button><button class="'+(FS==="g"?"on":"")+'" onclick="FS=\'g\';home(1)">'+G.length+' obuna</button></div>';
+var A=FS==="f"?F:G;
+if(!A.length)h+='<p style="color:var(--mut);margin:16px 0">'+(FS==="f"?'Hali obunachi yo‘q. Obunachilar haqiqiy foydalanuvchilar sizga obuna bo‘lganda paydo bo‘ladi.':'Hali hech kimga obuna bo‘lmadingiz. Profildagi “Tilchi foydalanuvchilari” bo‘limiga qarang.')+'</p>';
+A.forEach(function(a){h+=prow2(a,FS==="f"?"Javob qaytarish":"Obuna","Obuna ✓")});
+return h+'</div>'};
+/* eski soxta obunalar (indekslar) tozalanadi */
+try{if(U&&U.fol&&U.fol.length){U.fol=[];sv()}}catch(x){}
+
+/* ================= AVATAR OVOZI: odamdek gapirish ================= */
+/* Ovoz manbai (ustuvorlik):
+   1) server.js da AZURE_SPEECH_KEY ulangan bo‘lsa — Azure o‘zbek neyron ovozi (Madina/Sardor), eng tabiiy;
+   2) qurilmadagi tabiiy (Natural/Neural) o‘zbek ovozi, masalan Edge’da “Microsoft Madina Online”;
+   3) Google o‘zbek ovozi (internet orqali).
+   Og‘iz harakati: server ovozida — haqiqiy ovoz balandligiga qarab, qolganida — so‘zlar chegarasi va ritm bo‘yicha. */
+try{var mt=document.createElement("meta");mt.name="referrer";mt.content="no-referrer";document.head.appendChild(mt)}catch(x){}
+var AVA=null,AVQ=0,AVAC=null;
+function avCancel(){AVQ++;try{speechSynthesis.cancel()}catch(x){}try{if(AVA){AVA.onplaying=AVA.onended=AVA.onerror=null;AVA.pause();AVA=null}}catch(x){}}
+function voiceScore(v){var n=v.name,s=0;if(/natural|neural|online/i.test(n))s+=6;if(/madina|nigora|lola|aria|jenny|zira|samantha|svetlana|alena|milena|katya|female/i.test(n))s+=3;if(/google/i.test(n))s+=2;if(/espeak|compact|novelty/i.test(n))s-=5;return s}
+function pickVoice(lc){try{var b=lc.split("-")[0],c=speechSynthesis.getVoices().filter(function(v){return v.lang.toLowerCase().replace("_","-").split("-")[0]===b});c.sort(function(a,z){return voiceScore(z)-voiceScore(a)});return c[0]||null}catch(x){return null}}
+function sentences(t){var p=String(t).replace(/\s+/g," ").trim().match(/[^.!?…]+[.!?…]*/g)||[String(t)],o=[],cur="";
+p.forEach(function(s){s=s.trim();if(!s)return;if(cur&&(cur+" "+s).length>170){o.push(cur);cur=s}else cur=cur?cur+" "+s:s});if(cur)o.push(cur);return o}
+function pauseAfter(s){return /[?!]$/.test(s)?260+Math.random()*120:/…$/.test(s)?380:200+Math.random()*160}
+function avSpeakVoice(v,parts,cb,q){var i=0,fem=/female|madina|nigora|lola|aria|jenny|zira|svetlana|alena|milena|katya/i.test(v.name);
+function next(){if(q!==AVQ)return;if(i>=parts.length){cb.end&&cb.end();return}
+var s=parts[i],u=new SpeechSynthesisUtterance(s),first=i===0;u.voice=v;u.lang=v.lang;
+u.rate=.93+Math.random()*.08;u.pitch=(fem?1.03:.97)+Math.random()*.07;u.volume=1;
+u.onstart=function(){if(q===AVQ&&first)cb.start&&cb.start()};
+u.onboundary=function(ev){if(q===AVQ&&ev&&ev.name==="word")cb.word&&cb.word()};
+u.onend=function(){if(q!==AVQ)return;i++;setTimeout(next,i<parts.length?pauseAfter(s):0)};
+u.onerror=function(ev){if(q!==AVQ)return;if(ev&&(ev.error==="canceled"||ev.error==="interrupted"))return;cb.fail&&cb.fail()};
+try{speechSynthesis.resume()}catch(x){}speechSynthesis.speak(u)}
+next()}
+/* og‘iz ochilishini haqiqiy ovoz balandligidan olish (faqat o‘z serverimizdagi audio uchun) */
+function avAnalyse(a,cb){if(!cb.amp)return;try{var AC=window.AudioContext||window.webkitAudioContext;AVAC=AVAC||new AC();if(AVAC.state==="suspended")AVAC.resume();
+var src=AVAC.createMediaElementSource(a),an=AVAC.createAnalyser();an.fftSize=512;src.connect(an);an.connect(AVAC.destination);var d=new Uint8Array(an.fftSize);
+cb.amp(function(){an.getByteTimeDomainData(d);var s=0,i,x;for(i=0;i<d.length;i++){x=(d[i]-128)/128;s+=x*x}return Math.sqrt(s/d.length)})}catch(x){}}
+function avPlayUrls(urls,cb,q,same){var i=0;
+function next(){if(q!==AVQ)return;if(i>=urls.length){cb.end&&cb.end();return}
+var a=new Audio(urls[i]),first=i===0;AVA=a;
+a.onplaying=function(){if(q!==AVQ)return;if(first&&!a._s){a._s=1;cb.start&&cb.start();if(same)avAnalyse(a,cb)}};
+a.onended=function(){if(q!==AVQ)return;i++;setTimeout(next,i<urls.length?180+Math.random()*140:0)};
+a.onerror=function(){if(q!==AVQ)return;cb.fail&&cb.fail()};
+var p=a.play();if(p&&p.catch)p.catch(function(){if(q===AVQ)cb.fail&&cb.fail()})}
+next()}
+avVoice=function(t,cb){cb=cb||{};if(!U||U.tts===false||U.ava===false)return false;
+avCancel();var q=AVQ,parts=sentences(t);
+try{if(NET.on&&NET.tts){avPlayUrls(["/api/tts?text="+encodeURIComponent(String(t).slice(0,300))],cb,q,true);return true}
+var v=pickVoice("uz-UZ");if(v){avSpeakVoice(v,parts,cb,q);return true}
+avPlayUrls(parts.map(function(s){return "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=uz&q="+encodeURIComponent(s)}),cb,q,false);return true}catch(x){return false}};
+var _avStop=avStop;
+avStop=function(){avCancel();_avStop()};
+avSay=function(t,pt,nv){var b=document.getElementById("avb");AV.bt=t;if(b){b.textContent=t;b.classList.add("on")}
+clearInterval(AV.tm.k);clearTimeout(AV.tm.h);clearTimeout(AV.tm.hb);clearTimeout(AV.tm.sf);clearTimeout(AV.tm.ns);
+var id=AV.id,est=Math.min(16000,900+t.length*68),done=0,started=0,fb=0;AV.amp=null;AV.talk=0;avDraw();
+function sw(on){var s=document.getElementById("avs"),bb=document.getElementById("avb");if(s)s.classList.toggle("talking",on);if(bb)bb.classList.toggle("speaking",on)}
+function loop(){clearInterval(AV.tm.k);var fast=!!AV.amp;
+AV.tm.k=setInterval(function(){if(id!==AV.id){clearInterval(AV.tm.k);return}var n;
+if(AV.amp){var a=AV.amp();n=a<.02?2:a<.06?0:a<.13?3:1}else n=Math.random()<.2?2:[0,3,1,3,0][Math.floor(Math.random()*5)];
+if(n!==AV.talk){AV.talk=n;avDraw()}if(fb)avBlip((pt||300)*(.85+Math.random()*.5))},fast?55:140)}
+function start(){if(done||started)return;started=1;if(id!==AV.id)return;sw(true);loop()}
+function stop(){if(done)return;done=1;clearInterval(AV.tm.k);clearTimeout(AV.tm.sf);clearTimeout(AV.tm.ns);AV.amp=null;if(id!==AV.id)return;AV.talk=-1;avDraw();sw(false);
+if(AV.emo==="sleepy")return;AV.tm.hb=setTimeout(function(){var bb=document.getElementById("avb");if(bb&&id===AV.id&&AV.bt===t)bb.classList.remove("on")},2600)}
+function fail(){if(done||fb)return;fb=1;started=0;start();AV.tm.h=setTimeout(stop,est)}
+function word(){if(done||id!==AV.id||AV.amp)return;AV.talk=1;avDraw()}
+var vo=nv?false:avVoice(t,{start:start,end:stop,word:word,fail:fail,amp:function(f){AV.amp=f;loop()}});
+if(!vo){fb=1;start();AV.tm.h=setTimeout(stop,est)}
+else{AV.tm.ns=setTimeout(function(){if(!started)fail()},2500);AV.tm.sf=setTimeout(stop,est+25000)}
+return est};
+
+/* karusel: sahifa almashgandan keyin scroll xatosi (dots yo‘q) oldi olindi */
+initCar=function(){var car=document.getElementById("car");if(!car)return;var S=car.children;
+function pos(i){return S[i].offsetLeft-(car.clientWidth-S[i].offsetWidth)/2}
+if(CI===null)CI=cur();car.scrollLeft=pos(CI);
+car.onscroll=function(){var dd=document.getElementById("dots");if(!dd||!car.isConnected)return;var b=0,d=1e9;for(var i=0;i<S.length;i++){var x=Math.abs(car.scrollLeft-pos(i));if(x<d){d=x;b=i}}
+if(b!==CI){CI=b;[].forEach.call(dd.children,function(s,i){s.className=i===b?"on":""})}}};
 
 /* ================= home: yangi sahifalar ================= */
 var _home=home;
 home=function(keep){
+netSync();
 if(U&&(TAB==="pron"||TAB==="chat")){applyTheme();
 $.innerHTML=(TAB==="pron"?hPron():hChat())+nav()+(PY?payHTML():"");
 if(!keep)window.scrollTo(0,0);if(AV.id)avStop();return}
