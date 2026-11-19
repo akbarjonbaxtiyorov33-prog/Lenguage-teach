@@ -1282,6 +1282,15 @@ var CSS=`
 .lnm small{color:var(--mut)}
 .lxp{font-family:var(--fd);font-weight:800;text-align:right}.lxp small{display:block;font-size:10px;color:var(--mut);font-weight:600}
 .lge{text-align:center;padding:18px 12px;border:1px dashed var(--line);border-radius:16px;color:var(--mut);margin:8px 0}.lge .btn{margin-top:8px}
+.ig .igh{margin-top:-52px;gap:14px;padding-left:4px;align-items:flex-end}
+.ig .avw{--blob:50%;margin:6px 0 4px 6px;filter:drop-shadow(0 10px 16px color-mix(in srgb,var(--acc) 35%,transparent))}
+.ig .avw,.ig .avr1,.ig #avs{width:92px;height:92px}
+.ig .avw:before{inset:-5px;animation-duration:12s}.ig .avw:after{inset:-1px;border-width:4px}
+.ig #avs svg{border-radius:50%}
+.avlv{position:absolute;right:-6px;bottom:-4px;z-index:3;min-width:30px;height:30px;padding:0 6px;border-radius:15px;background:linear-gradient(145deg,#f3d27a,#c8962e);color:#fff;font:800 13px/24px system-ui,sans-serif;text-align:center;border:3px solid var(--bg);box-sizing:border-box;transform:none}
+.ig .igs{margin-bottom:8px}.ig .igs b{font-size:17px}
+.ig .igt b{font-size:15px;opacity:.95}
+.ig .ign{margin-top:14px;box-shadow:0 10px 24px -18px rgba(0,0,0,.5)}
 .ig .igs>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 0;margin:0 3px}
 .ig .ign{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:10px 0}
 .ig .igg>div{border-radius:16px;border-top:3px solid var(--acc);box-shadow:0 8px 18px -14px rgba(0,0,0,.5);background:linear-gradient(180deg,var(--card),var(--soft))}
@@ -1540,6 +1549,7 @@ var _hMe=hMe;
 hMe=function(){var h=_hMe(),lv=lvg(),c=lv===1?doneCnt():hpg();
 h=h.replace('<div class="ign"><b>'+e(U.name)+'</b>','<div class="ign"><b>'+e(U.name)+'</b>'+(isPrem()?' <span class="pbd">'+ic("crown",15)+'</span>':''));
 h=h.replace('<small>Ro‘yxatdan o‘tgan:','<span class="lvb">Daraja '+lv+' · '+lvName(lv)+'</span><div class="lvp"><i style="width:'+(c*10)+'%"></i></div><small class="lvt">Keyingi daraja: '+c+' / '+NM+' modul</small><small>Ro‘yxatdan o‘tgan:');
+h=h.replace('<div class="igt"><b>','<div class="igt"><b>@').replace('id="avw" onclick="avTap()">','id="avw" onclick="avTap()"><span class="avlv" title="Daraja">'+lv+'</span>');
 return h.replace('Siz bilishingiz mumkin','Tilchi foydalanuvchilari')};
 
 /* ================= HAQIQIY FOYDALANUVCHILAR (soxta/namunaviy ro‘yxat olib tashlandi) ================= */
@@ -1550,7 +1560,7 @@ return h.replace('Siz bilishingiz mumkin','Tilchi foydalanuvchilari')};
 var API_BASE="";
 try{var qa=new URLSearchParams(location.search).get("api");if(qa&&/^https?:\/\/[^\s]+$/.test(qa))localStorage.setItem("tl_api",qa.replace(/\/+$/,""))}catch(x){}
 function apiBase(){var b="";try{b=localStorage.getItem("tl_api")||""}catch(x){}return(API_BASE||b||"").replace(/\/+$/,"")}
-var NET={on:/^https?:$/.test(location.protocol)||!!apiBase(),users:[],ok:false,t:0,sig:"",tts:false};window.NET=NET;
+var NET={extra:{},on:/^https?:$/.test(location.protocol)||!!apiBase(),users:[],ok:false,t:0,sig:"",tts:false};window.NET=NET;
 function netTok(){if(!U.tk){U.tk=Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2)+Date.now().toString(36);sv()}return U.tk}
 var AVD={skin:"#9a5140",shirt:"#f4a23d",eyes:0,mouth:0,hair:0,hc:"#2b1d16",glasses:0,hat:1,hatc:"#8e68c9"};
 /* boshqa foydalanuvchidan kelgan avatar ma’lumoti SVG ichiga tushadi — faqat son va #rangga ruxsat */
@@ -1565,7 +1575,7 @@ if(s!==NET.sig){NET.sig=s;if(TAB==="league"||TAB==="fls")home(1);else if(TAB==="
 setInterval(function(){netSync()},30000);
 document.addEventListener("visibilitychange",function(){if(!document.hidden)netSync(1)});
 function localU(){var r=[];try{Object.keys(ACC).forEach(function(k){var a=ACC[k];if(a&&a.un&&k!==U.email)r.push({un:a.un,name:a.name,xp:a.xp||0,streak:a.streak||0,lang:a.lang,lv:(a.lv&&a.lv[a.lang])||1,av:a.av,fe:a.fe||[],email:a.email||k,seen:0})})}catch(x){}return r}
-function others(){var m={};localU().forEach(function(a){m[a.un]=a});NET.users.forEach(function(a){if(a.un!==U.un)m[a.un]=Object.assign({},m[a.un]||{},a)});return Object.keys(m).map(function(k){return m[k]}).sort(function(a,b){return(b.xp||0)-(a.xp||0)})}
+function others(){var m={};localU().forEach(function(a){m[a.un]=a});NET.users.concat(Object.keys(NET.extra||{}).map(function(k){return NET.extra[k]})).forEach(function(a){if(a.un!==U.un)m[a.un]=Object.assign({},m[a.un]||{},a)});return Object.keys(m).map(function(k){return m[k]}).sort(function(a,b){return(b.xp||0)-(a.xp||0)})}
 function isF(a){var f=U.fe||[];return f.indexOf(a.un)>=0||(!!a.email&&f.indexOf(a.email)>=0)}
 fe_=function(id){U.fe=U.fe||[];var a=others().filter(function(x){return x.un===id||x.email===id})[0],ids=a?[a.un,a.email]:[id],on=U.fe.some(function(x){return ids.indexOf(x)>=0});
 if(on)U.fe=U.fe.filter(function(x){return ids.indexOf(x)<0});else U.fe.push(a?a.un:id);sv();netSync(1);home(1)};
@@ -1659,7 +1669,7 @@ return '<div class="trow" data-id="'+e(t.peer)+'" onclick="dmOpen(this.dataset.i
 function dmRefresh(){if(!U)return;dmInbox().then(function(j){var prev=DM.un||0;DM.th=j.threads||[];DM.un=j.unread||0;dmBadge();
 if(DM.un>prev&&TAB!=="dmc")toast("Yangi xabar keldi");if(TAB==="dm"){var t=document.getElementById("dmt");if(t)t.innerHTML=thHTML()}}).catch(function(){})}
 window.dmRefresh=dmRefresh;
-setInterval(dmRefresh,15000);setTimeout(dmRefresh,2500);
+setInterval(dmRefresh,8000);setTimeout(dmRefresh,2500);
 /* --- suhbatlar ro‘yxati --- */
 hDm=function(){var f=others().filter(function(a){return isF(a)&&!isB(a)}),
 h='<div class="aeh"><button class="x" onclick="TAB=\'me\';home()">'+ic("back",22)+'</button><b>Xabarlar</b><button class="pe" onclick="TAB=\'usr\';home()" aria-label="Foydalanuvchilar">'+ic("users",18)+'</button></div><div class="ob" style="padding-top:8px">';
@@ -1732,13 +1742,16 @@ window.unBlock=function(id){U.bl=blk().filter(function(x){return x!==id});sv();n
 hDmc=function(){var p=peerOf(DM.peer)||{un:DM.peer,name:DM.peer};
 return '<div class="dmw"><div class="dmh"><button class="x" onclick="TAB=\'dm\';home()">'+ic("back",22)+'</button><div class="lav">'+avMini(p)+'</div><div class="nm"><b>'+e(p.name||p.un)+'</b><small id="dms"></small></div><button class="pe" onclick="dmBlock()" aria-label="Bloklash">'+ic("more",18)+'</button></div><div class="dmm" id="dmm"></div><div id="dminw"></div></div>'};
 /* --- barcha ro‘yxatdan o‘tgan foydalanuvchilar --- */
-function usRows(o,q){q=(q||"").toLowerCase().trim();
+function usRows(o,q){q=(q||"").toLowerCase().trim().replace(/^@/,"");
 var r=o.filter(function(a){return !q||(a.name||"").toLowerCase().indexOf(q)>=0||a.un.toLowerCase().indexOf(q)>=0}).sort(function(a,b){return(isOn(b)?1:0)-(isOn(a)?1:0)||(b.xp||0)-(a.xp||0)});
-if(!r.length)return '<div class="lge"><p>'+(q?'Hech kim topilmadi.':'Hali boshqa foydalanuvchi yo‘q. Do‘stlaringizni taklif qiling.')+'</p>'+(q?'':'<button class="btn" onclick="invite()">Do‘st taklif qilish</button>')+'</div>';
+if(!r.length)return '<div class="lge"><p>'+(q?'Hech kim topilmadi. Username‘ni to‘liq va to‘g‘ri yozing (masalan @ali).':'Hali boshqa foydalanuvchi yo‘q. Do‘stlaringizni taklif qiling.')+'</p>'+(q?'':'<button class="btn" onclick="invite()">Do‘st taklif qilish</button>')+'</div>';
 return r.map(function(a){var f=isF(a),L2=lg(a.lang)||[];return '<div class="fr"><div class="fa">'+avMini(a)+(isOn(a)?'<i class="od"></i>':'')+'</div><div><b>'+e(a.name||a.un)+'</b><small>@'+e(a.un)+' · '+(L2[2]||"")+' · '+fmtX(a.xp)+' XP'+(isOn(a)?' · onlayn':'')+'</small></div>'+(f?'<button class="pe" data-id="'+e(a.un)+'" onclick="dmOpen(this.dataset.id)" aria-label="Xabar yozish">'+ic("chat",17)+'</button>':'')+'<button class="fb2'+(f?' on':'')+'" data-id="'+e(a.un)+'" onclick="fe_(this.dataset.id)">'+(f?"Obuna ✓":"Obuna")+'</button></div>'}).join("")}
-window.usFilter=function(v){US.q=v;var el=document.getElementById("usl");if(el)el.innerHTML=usRows(others().filter(function(a){return !isB(a)}),v)};
+function usPaint(){var el=document.getElementById("usl");if(el)el.innerHTML=usRows(others().filter(function(a){return !isB(a)}),US.q)}
+var usT=0;
+window.usFilter=function(v){US.q=v;usPaint();clearTimeout(usT);var q=v.replace(/^@/,"").trim();if(q.length<2||!NET.on)return;
+usT=setTimeout(function(){fetch(apiBase()+"/api/find?q="+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(j){if(US.q!==v)return;var n=0;(j.users||[]).forEach(function(a){if(a&&a.un&&a.un!==U.un&&!NET.extra[a.un]&&!NET.users.some(function(x){return x.un===a.un})){NET.extra[a.un]=a;n++}else if(a&&a.un&&NET.extra[a.un])NET.extra[a.un]=a});if(TAB==="usr")usPaint()}).catch(function(){})},300)};
 hUsr=function(){var all=others(),o=all.filter(function(a){return !isB(a)}),bl=all.filter(isB);
-var h='<div class="aeh"><button class="x" onclick="TAB=\'me\';home()">'+ic("back",22)+'</button><b>Foydalanuvchilar</b><button class="pe dmbtn" onclick="TAB=\'dm\';home()" aria-label="Xabarlar">'+ic("chat",18)+'<i class="dmb"'+(DM.un?'':' hidden')+'>'+(DM.un||"")+'</i></button></div><div class="ob" style="padding-top:8px"><small>'+o.length+' ta ro‘yxatdan o‘tgan foydalanuvchi'+(NET.ok?'':' (faqat shu qurilmada)')+'</small><input class="inp" id="usq" value="'+e(US.q)+'" placeholder="Ism yoki @username bo‘yicha qidirish" oninput="usFilter(this.value)" style="margin:10px 0" autocomplete="off"><div id="usl">'+usRows(o,US.q)+'</div>';
+var h='<div class="aeh"><button class="x" onclick="TAB=\'me\';home()">'+ic("back",22)+'</button><b>Foydalanuvchilar</b><button class="pe dmbtn" onclick="TAB=\'dm\';home()" aria-label="Xabarlar">'+ic("chat",18)+'<i class="dmb"'+(DM.un?'':' hidden')+'>'+(DM.un||"")+'</i></button></div><div class="ob" style="padding-top:8px"><small>'+o.length+' ta ro‘yxatdan o‘tgan foydalanuvchi'+(NET.ok?'':' (faqat shu qurilmada)')+'</small><input class="inp" id="usq" value="'+e(US.q)+'" placeholder="Username yoki ism yozing (@ali)" oninput="usFilter(this.value)" style="margin:10px 0" autocomplete="off"><div id="usl">'+usRows(o,US.q)+'</div>';
 if(bl.length)h+='<div class="sec" style="margin-left:0">Bloklanganlar</div>'+bl.map(function(a){return '<div class="fr"><div class="fa">'+avMini(a)+'</div><div><b>'+e(a.name||a.un)+'</b><small>@'+e(a.un)+'</small></div><button class="fb2" data-id="'+e(a.un)+'" onclick="unBlock(this.dataset.id)">Ochish</button></div>'}).join("");
 if(!NET.ok)h+='<small style="display:block;margin-top:12px">Boshqa qurilmalardagi foydalanuvchilarni ko‘rish uchun sayt server.js bilan ishlashi kerak.</small>';
 return h+'</div>'};
