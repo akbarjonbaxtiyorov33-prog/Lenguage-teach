@@ -70,3 +70,11 @@
   "id": "/Tilcha.pwa",
   "description": "Tilchi is an educational platform for learning English,improving IELTS skills, and practicing English"
 }
+
+{
+  "name": "tilchi",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
