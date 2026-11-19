@@ -68,8 +68,7 @@ http.createServer((req, res) => {
   if (req.method === "GET" && f) {
     return fs.readFile(path.join(__dirname, f), (err, data) => err ? send(res, 404, "Topilmadi", "text/plain") : send(res, 200, data, MIME[path.extname(f)] || "application/octet-stream"));
 
-
-     /* Tilchi serveri — tashqi paketlarsiz. Ishga tushirish:  node server.js  →  http://localhost:3000
+   /* Tilchi serveri — tashqi paketlarsiz. Ishga tushirish:  node server.js  →  http://localhost:3000
    Vazifasi: saytni berish + haqiqiy foydalanuvchilar ro‘yxatini (reyting, obunalar) saqlash.
    Avatar ovozi (ixtiyoriy, odamdek o‘zbek ovozi): AZURE_SPEECH_KEY=... AZURE_SPEECH_REGION=eastus [AZURE_VOICE=uz-UZ-MadinaNeural] node server.js
    (Yandex ham bor: YANDEX_API_KEY=... [YANDEX_VOICE] [YANDEX_LANG])
@@ -123,6 +122,7 @@ function relay(up, res, text) {
   up.on("end", () => { const buf = Buffer.concat(ch); if (cache.size >= 300) cache.delete(cache.keys().next().value); cache.set(text, buf); audio(res, buf); });
   up.on("error", () => send(res, 502, "{}"));
 }
+const nz2 = (t) => String(t).toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 function pub() {
   return Object.values(users).sort((a, b) => b.xp - a.xp).slice(0, 500)
     .map(({ tk, bl, rd, ...u }) => u);
@@ -212,10 +212,10 @@ http.createServer((req, res) => {
   if (url.pathname === "/api/find" && req.method === "GET") {
     if (limited("f:" + ip, 60)) return send(res, 429, '{"error":"limit"}');
     const q = str(url.searchParams.get("q"), 40).trim().replace(/^@/, "").toLowerCase();
-    if (q.length < 2) return send(res, 200, '{"users":[]}');
+    if (nz2(q).length < 2) return send(res, 200, '{"users":[]}');
     const out = [];
     for (const u of Object.values(users)) {
-      if (u.un.toLowerCase().includes(q) || (u.name || "").toLowerCase().includes(q)) {
+      if (nz2(u.un).includes(nz2(q)) || nz2(u.name || "").includes(nz2(q))) {
         const { tk, bl, rd, ...pu } = u; out.push(pu); if (out.length >= 20) break;
       }
     }
@@ -263,9 +263,6 @@ http.createServer((req, res) => {
   const f = FILES[url.pathname];
   if (req.method === "GET" && f) {
     return fs.readFile(path.join(__dirname, f), (err, data) => err ? send(res, 404, "Topilmadi", "text/plain") : send(res, 200, data, MIME[path.extname(f)] || "application/octet-stream"));
-  }
-  send(res, 404, "Topilmadi", "text/plain");
-}).listen(PORT, () => console.log("Tilchi: http://localhost:" + PORT));
   }
   send(res, 404, "Topilmadi", "text/plain");
 }).listen(PORT, () => console.log("Tilchi: http://localhost:" + PORT));
