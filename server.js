@@ -266,3 +266,53 @@ http.createServer((req, res) => {
   }
   send(res, 404, "Topilmadi", "text/plain");
 }).listen(PORT, () => console.log("Tilchi: http://localhost:" + PORT));
+
+
+     /* ===== Video bo'limi: ko'p video (har manbadan 12 tagacha) ===== */
+var PIPED=["https://pipedapi.kavin.rocks","https://pipedapi.adminforge.de","https://api.piped.private.coffee"];
+function pipedList(plId){
+  return new Promise(function(res){
+    (function nx(i){
+      if(i>=PIPED.length)return res([]);
+      fj(PIPED[i]+"/playlists/"+encodeURIComponent(plId),{},8000)
+        .then(function(r){return r.json()})
+        .then(function(j){
+          var a=(j.relatedStreams||[]).map(function(s){
+            var m=String(s.url||"").match(/v=([\w-]{11})/);
+            return m?{id:m[1],t:s.title||"Video"}:null;
+          }).filter(Boolean).slice(0,12);
+          if(a.length)res(a);else nx(i+1);
+        }).catch(function(){nx(i+1)});
+    })(0);
+  });
+}
+vFetch=function(it){
+  return new Promise(function(res){
+    var ck="tl_yt_"+it.key,c=null;
+    try{c=JSON.parse(localStorage.getItem(ck)||"null")}catch(x){}
+    if(c&&Date.now()-c.t<432e5&&c.items&&c.items.length)return res(c.items);
+    function save(a){
+      if(a.length)try{localStorage.setItem(ck,JSON.stringify({t:Date.now(),items:a}))}catch(x){}
+      res(a);
+    }
+    function viaPiped(){pipedList(it.key).then(function(a){save(a.length?a:(c&&c.items)||[])})}
+    if(!NET.on)return viaPiped();
+    fetch(apiBase()+"/api/yt?id="+encodeURIComponent(it.key))
+      .then(function(r){if(!r.ok)throw 0;return r.json()})
+      .then(function(j){
+        var a=(j.items||[]).filter(function(x){return x&&/^[\w-]{11}$/.test(x.id)});
+        if(a.length)save(a);else viaPiped();
+      }).catch(viaPiped);
+  });
+};
+MU.vn=24; /* boshida 24 ta video ko'rinadi, "Yana ko'rsatish" bilan ko'payadi */
+
+/* Qo'shimcha manbalar (ingliz tili) */
+try{
+  VCAT.en.push(
+    VU("UCHaHD477h-FeBbVh9Sh7syA","BBC Learning English","p"),
+    VU("UCLsooMJoIpl_7ux2jvdPB-Q","Super Simple Songs — bolalar qo'shiqlari","c"),
+    VU("UCbCmjCuTUZos6Inko4u57UQ","Cocomelon — bolalar qo'shiqlari","c"),
+    VU("UCsooa4yRKGN_zEE8iknghZA","TED-Ed","p")
+  );
+}catch(x){}
