@@ -316,3 +316,9 @@ try{
     VU("UCsooa4yRKGN_zEE8iknghZA","TED-Ed","p")
   );
 }catch(x){}
+     try{if(U){applyTheme();home()}}catch(x){}
+})();
+
+</script>
+</body>
+</html>
