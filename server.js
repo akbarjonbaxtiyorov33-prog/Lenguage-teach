@@ -322,3 +322,17 @@ try{
 </script>
 </body>
 </html>
+
+...avvalgi kod...
+
+/* ===== Video bo'limi: ko'p video ===== */
+var PIPED=[...];
+function pipedList(plId){...}
+vFetch=function(it){...};
+MU.vn=24;
+try{ VCAT.en.push(...) }catch(x){}
+
+try{if(U){applyTheme();home()}}catch(x){}
+})();
+</script>
+
