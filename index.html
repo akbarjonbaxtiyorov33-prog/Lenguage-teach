@@ -1911,6 +1911,23 @@ ACCS[0]=["#7c4dff","#5b2fe0"];try{applyTheme()}catch(x){}
 try{Object.defineProperty(window,"PR",{get:function(){return PR}})}catch(x){}
 window.prR=prR;
 
+
+/* ===== TIL REKLAMA KARTASI ===== */
+var ADP={en:["Hello","Thank you"],ru:["Привет","Спасибо"],es:["Hola","Gracias"],fr:["Bonjour","Merci"],de:["Hallo","Danke"],tr:["Merhaba","Teşekkürler"],it:["Ciao","Grazie"],pt:["Olá","Obrigado"],ar:["مرحبا","شكرا"],zh:["你好","谢谢"],ja:["こんにちは","ありがとう"],ko:["안녕하세요","감사합니다"],hi:["नमस्ते","धन्यवाद"],pl:["Cześć","Dziękuję"],nl:["Hallo","Dank je"],sv:["Hej","Tack"],el:["Γεια σου","Ευχαριστώ"],uk:["Привіт","Дякую"],fa:["سلام","ممنون"]};
+var ADU=["Salom","Rahmat"];
+function adCard(){var l=lg(U.lang),p=ADP[U.lang];if(!p)return '';var k=Math.floor(Date.now()/36e5)%2;
+return '<div class="gh adc"><div><small>Reklama · '+e(l[2])+' '+e(l[1])+' kursi</small><h2 data-t="'+e(p[k])+'">'+e(p[k])+'</h2><p>«'+ADU[k]+'» — '+e(l[1])+' tilida. Ovozini tinglang!</p><div class="adb"><button onclick="say(this.closest(\'.adc\').querySelector(\'h2\').dataset.t,\''+l[3]+'\')">🔊 Tinglash</button><button onclick="TAB=\'mu\';home()">▶ Video</button><button onclick="prStart()">🎤 Talaffuz</button></div></div><div class="adf">'+e(l[2])+'</div></div>'}
+var AD=document.createElement("style");AD.textContent=".adc{margin:14px 16px!important;display:flex;justify-content:space-between;align-items:center;gap:10px}.adc h2{font-size:30px!important}.adf{font-size:56px;line-height:1;filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}.adb{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.adb button{border:0;border-radius:14px;padding:9px 12px;background:rgba(255,255,255,.2);color:#fff;font:700 13px var(--fb);cursor:pointer;backdrop-filter:blur(4px)}.adb button:active{background:rgba(255,255,255,.35)}";document.body.appendChild(AD);
+
+/* ===== YUQORIDAGI TREYLER-REKLAMA SLAYDI (XP kartasi shaklida) ===== */
+function trId(){var a=VSTATIC[U.lang]||[];if(!a.length)return "";var d=Math.floor(Date.now()/864e5);return a[d%a.length][0]}
+function trSlide(){var l=lg(U.lang),id=trId();if(!id)return adCard();
+return '<div class="gh adt" id="adt" style="background-image:url(https://i.ytimg.com/vi/'+id+'/mqdefault.jpg)!important;background-size:cover!important;background-position:center!important"><iframe tabindex="-1" src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&mute=1&controls=0&loop=1&playlist='+id+'&playsinline=1&rel=0&modestbranding=1&disablekb=1&origin='+encodeURIComponent(location.origin)+'" allow="autoplay;encrypted-media;picture-in-picture" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:100%;aspect-ratio:16/9;border:0;pointer-events:none"></iframe><div class="adtt"><span>Reklama · '+e(l[2])+' '+e(l[1])+'</span></div></div>'}
+window.trPlay=function(el){var id=el.dataset.v;el.onclick=null;el.style.cursor="default";el.classList.add("on");el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0&origin='+encodeURIComponent(location.origin)+'" allow="autoplay;encrypted-media;fullscreen;picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:inherit"></iframe>'};
+var _hHome2=hHome;hHome=function(){var h=_hHome2();var k='</div><div class="gs">';var i=h.indexOf(k);if(i<0)return h;h=h.slice(0,i)+k+trSlide()+h.slice(i);
+return h.replace('<div class="dots gd"><span class="on"></span><span></span></div>','<div class="dots gd"><span class="on"></span><span></span><span></span></div>')};
+gdot=window.gdot=function(el){var i=Math.round(el.scrollLeft/el.clientWidth),d=el.nextElementSibling.children,k;for(k=0;k<d.length;k++)d[k].className=k===i?"on":""};
+var AT=document.createElement("style");AT.textContent=".adt{position:relative;min-height:130px;display:block!important;overflow:hidden;padding:0!important}.adt:before{display:none}.adtt{position:absolute;left:12px;top:10px;z-index:2}.adtt span{background:rgba(20,8,60,.6);color:#fff;font:700 12px var(--fb);padding:5px 10px;border-radius:99px;backdrop-filter:blur(4px)}";document.body.appendChild(AT);
 /* ================= DARAJA TIZIMI: har daraja = 10 ta alohida, qiyinroq modul ================= */
 var LVN=["A1–A2","B1","B2","C1","C2"],TIER=["","","Pro","Expert","Master","Legend"];
 lvName=function(n){return n<=5?LVN[n-1]:"C2+ ("+n+")"};window.lvName=lvName;
